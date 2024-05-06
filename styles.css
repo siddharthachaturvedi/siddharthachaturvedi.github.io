@@ -1,0 +1,380 @@
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg-color: #a0a0a0;
+    --header-text-color: #000000;
+    --hero-bg-color: #80cc88;
+    --hero-text-color: #1A472A;
+    --section-bg-color: #fff;
+    --section-alt-bg-color: #f4f4f4;
+    --button-bg-color: #80cc88;
+    --button-text-color: #1A472A;
+    --button-hover-bg-color: #d35d6e;
+    --scroll-top-bg-color: #80cc88;
+    --scroll-top-text-color: #fff;
+    --link-color: #d35d6e; /* New variable for links */
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #fff;
+        --header-bg-color: #1f1f1f;
+        --header-text-color: #fff;
+        --hero-bg-color: #1f1f1f;
+        --hero-text-color: #80cc88;
+        --section-bg-color: #1f1f1f;
+        --section-alt-bg-color: #121212;
+        --button-bg-color: #1A472A;
+        --button-text-color: #fff;
+        --button-hover-bg-color: #121212;
+        --scroll-top-bg-color: #1A472A;
+        --scroll-top-text-color: #fff;
+        --link-color: #ffb3b3; /* New variable for links */
+    }
+}
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#dynamic-text {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900; /* Choose the weight based on your preference */
+    color: var(--text-color);
+    font-size: 1em; /* Adjust size for visibility */
+}
+
+/* Adding Scroll down button */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
+}                 
+
+#about, #projects, #highlights, #skills, #interweb, #contact, #fun-fact {
+    scroll-margin-top: 90px; /* Adjust the value to the height of your header */
+}
+
+/* Header */
+header {
+    background-color: var(--header-bg-color);
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--header-text-color);
+    font-size: 4vw; /* Start with a base size that scales with the viewport */
+    font-size: max(16px, min(4vw, 24px)); /* Ensures font size is never below 16px or above 24px */
+    white-space: nowrap; /* Keeps the text in a single line */
+    overflow: hidden; /* Prevents the text from overflowing its container */
+    text-overflow: ellipsis; /* Adds an ellipsis if the text overflows (optional, depending on design) */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--header-text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #61dafb;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--header-text-color);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+
+/* Links */
+a {
+    color: var(--link-color); /* Use the variable for link color */
+    text-decoration: none; /* Optional: removes underline from links */
+}
+
+a:hover, a:focus {
+    color: darken(var(--link-color), 10%); /* Darken for hover and focus states */
+    text-decoration: underline; /* Optional: adds underline on hover/focus */
+}
+
+/* Hero section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--hero-bg-color);
+    color: var(--hero-text-color);
+}
+
+.hero .container {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 24px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Sections */
+section {
+    padding: 80px 0;
+    background-color: var(--section-bg-color);
+}
+
+section:nth-child(even) {
+    background-color: var(--section-alt-bg-color);
+}
+
+section h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* About section */
+.about p {
+    margin-bottom: 20px;
+}
+
+/* Projects section */
+.project {
+    margin-bottom: 40px;
+}
+
+.project h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.project p {
+    margin-bottom: 20px;
+}
+
+.project a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.project a:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Skills section */
+.skills ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.skills li {
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/* Contact section */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.contact button {
+    padding: 10px 20px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Footer */
+footer {
+    background-color: var(--header-bg-color);
+    color: var(--header-text-color);
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer p {
+    font-size: 14px;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--scroll-top-bg-color);
+    color: var(--scroll-top-text-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 80px;
+        background-color: var(--header-bg-color);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section h2 {
+        font-size: 24px;
+    }
+
+    .project h3 {
+        font-size: 20px;
+    }
+}
