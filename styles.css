@@ -1,39 +1,3 @@
-:root {
-    --bg-color: #f4f4f4;
-    --text-color: #333;
-    --header-bg-color: #a0a0a0;
-    --header-text-color: #000000;
-    --hero-bg-color: #80cc88;
-    --hero-text-color: #1A472A;
-    --section-bg-color: #fff;
-    --section-alt-bg-color: #f4f4f4;
-    --button-bg-color: #80cc88;
-    --button-text-color: #1A472A;
-    --button-hover-bg-color: #d35d6e;
-    --scroll-top-bg-color: #80cc88;
-    --scroll-top-text-color: #fff;
-    --link-color: #d35d6e; /* New variable for links */
-}
-
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color: #121212;
-        --text-color: #fff;
-        --header-bg-color: #1f1f1f;
-        --header-text-color: #fff;
-        --hero-bg-color: #1f1f1f;
-        --hero-text-color: #80cc88;
-        --section-bg-color: #1f1f1f;
-        --section-alt-bg-color: #121212;
-        --button-bg-color: #1A472A;
-        --button-text-color: #fff;
-        --button-hover-bg-color: #121212;
-        --scroll-top-bg-color: #1A472A;
-        --scroll-top-text-color: #fff;
-        --link-color: #ffb3b3; /* New variable for links */
-    }
-}
-
 /* Reset default browser styles */
 * {
     margin: 0;
@@ -56,26 +20,8 @@ body {
     padding: 0 20px;
 }
 
-#dynamic-text {
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 900; /* Choose the weight based on your preference */
-    color: var(--text-color);
-    font-size: 1em; /* Adjust size for visibility */
-}
-
-/* Adding Scroll down button */
-.scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    color: var(--text-color);
-    cursor: pointer;
-}                 
-
-#about, #projects, #highlights, #skills, #interweb, #contact, #fun-fact {
-    scroll-margin-top: 90px; /* Adjust the value to the height of your header */
+.hidden {
+    display: none;
 }
 
 /* Header */
@@ -97,11 +43,7 @@ nav {
 
 .logo {
     color: var(--header-text-color);
-    font-size: 4vw; /* Start with a base size that scales with the viewport */
-    font-size: max(16px, min(4vw, 24px)); /* Ensures font size is never below 16px or above 24px */
-    white-space: nowrap; /* Keeps the text in a single line */
-    overflow: hidden; /* Prevents the text from overflowing its container */
-    text-overflow: ellipsis; /* Adds an ellipsis if the text overflows (optional, depending on design) */
+    font-size: 24px;
     font-weight: bold;
     text-decoration: none;
 }
@@ -122,7 +64,7 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #61dafb;
+    color: var(--link-hover-color);
 }
 
 .burger {
@@ -138,27 +80,17 @@ nav {
     transition: all 0.3s ease;
 }
 
-
-/* Links */
-a {
-    color: var(--link-color); /* Use the variable for link color */
-    text-decoration: none; /* Optional: removes underline from links */
-}
-
-a:hover, a:focus {
-    color: darken(var(--link-color), 10%); /* Darken for hover and focus states */
-    text-decoration: underline; /* Optional: adds underline on hover/focus */
-}
-
 /* Hero section */
 .hero {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     background-color: var(--hero-bg-color);
     color: var(--hero-text-color);
+    position: relative;
 }
 
 .hero .container {
@@ -175,131 +107,307 @@ a:hover, a:focus {
     font-size: 24px;
 }
 
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+#dynamic-text {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 900;
+    color: var(--text-color);
+    font-size: 1em;
 }
 
-.cta-button:hover {
-    background-color: var(--button-hover-bg-color);
+/* Scroll down button */
+.scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    color: var(--text-color);
+    cursor: pointer;
 }
 
-/* Sections */
-section {
+/* Introduction section */
+.introduction {
     padding: 80px 0;
-    background-color: var(--section-bg-color);
-}
-
-section:nth-child(even) {
-    background-color: var(--section-alt-bg-color);
-}
-
-section h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
     text-align: center;
 }
 
-/* About section */
-.about p {
+.introduction img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     margin-bottom: 20px;
 }
 
-/* Projects section */
-.project {
-    margin-bottom: 40px;
-}
-
-.project h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.project p {
+.introduction h2 {
+    font-size: 36px;
     margin-bottom: 20px;
 }
 
-.project a {
-    display: inline-block;
+.introduction p {
+    margin-bottom: 20px;
+}
+
+#start-chat-button {
     padding: 10px 20px;
+    cursor: pointer;
     background-color: var(--button-bg-color);
+    border: none;
     color: var(--button-text-color);
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
 
-.project a:hover {
+#start-chat-button:hover {
     background-color: var(--button-hover-bg-color);
 }
 
+/* Chat container */
+#chat-container {
+    padding: 80px 0;
+}
+
+#chat-window {
+    height: 400px;
+    overflow-y: auto;
+    border: 1px solid var(--chat-border-color);
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#input-container {
+    display: flex;
+}
+
+#input-text {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+#send-button {
+    padding: 10px 20px;
+    cursor: not-allowed;
+    background-color: var(--send-button-disabled-bg-color);
+    border: none;
+    color: var(--send-button-text-color);
+    font-weight: bold;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+#send-button.enabled {
+    cursor: pointer;
+    background-color: var(--button-bg-color);
+}
+
+#send-button.enabled:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+/* Message styles */
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.user-message {
+    background-color: var(--user-message-bg-color);
+    align-self: flex-end;
+}
+
+.response-message {
+    background-color: var(--response-message-bg-color);
+    color: var(--response-message-text-color);
+    align-self: flex-start;
+}
+
+/* Thinking animation */
+.thinking-message {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.thinking-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--thinking-dot-color);
+    border-radius: 50%;
+    margin-right: 4px;
+    animation: thinking 1.2s infinite ease-in-out;
+}
+
+.thinking-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.thinking-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes thinking {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* General Section Styles */
+section {
+    padding: 80px 0;  /* Top and bottom padding for all sections */
+    background-color: var(--section-bg-color);
+}
+
+#introduction-container,
+#chat-container,
+#projects,
+#skills,
+#contact {
+    background-color: var(--section-alt-bg-color);  /* Alternate background color */
+}
+
+section h2 {
+    font-size: 36px;       /* Section title size */
+    margin-bottom: 40px;   /* Spacing after section title */
+    text-align: center;    /* Center-align titles */
+}
+
+/* About Section Paragraph Spacing */
+.about p {
+    margin-bottom: 20px;   /* Spacing between paragraphs */
+}
+
+/* Projects Section */
+#projects .container {
+    margin: 0 auto;        /* Center the container horizontally */
+    padding: 0 20px;       /* Add horizontal padding inside the container */
+}
+
+#projects h2 {
+    margin-bottom: 40px;   /* Spacing after the section title */
+    text-align: center;
+    font-size: 36px;       /* Section title font size */
+}
+
+#projects p {
+    margin-bottom: 20px;   /* Spacing between each paragraph */
+    line-height: 1.6;      /* Consistent line spacing within paragraphs */
+    font-size: 18px;       /* Adjust paragraph font size if necessary */
+}
+
+.project {
+    margin-bottom: 40px;   /* Spacing between individual projects */
+}
+
+
+/* Highlights section */
+.highlights p {
+    margin-bottom: 20px;
+}
 /* Skills section */
 .skills ul {
     list-style: none;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .skills li {
-    padding: 10px 20px;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    font-size: 18px;
-    border-radius: 5px;
-    margin: 10px;
+    padding: 8px 15px; /* Reduced padding */
+    background-color: var(--skill-bg-color);
+    color: var(--skill-text-color);
+    font-size: 16px; /* Slightly smaller font size */
+    border-radius: 8px; /* Softer rounded corners */
+    margin: 8px; /* Reduced margin for more compact spacing */
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15); /* Softer shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Faster transitions */
+    position: relative;
+    font-weight: 500; /* Medium weight for less emphasis */
+    cursor: pointer;
+}
+
+.skills li:hover {
+    transform: translateY(-4px); /* Subtle hover movement */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+/* Tooltip styles */
+.skills li::after {
+    content: attr(title);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    margin-bottom: 8px; /* Smaller gap between tooltip and skill */
+    background: #444; /* Softer gray color */
+    color: #f9f9f9; /* Lighter text color */
+    padding: 5px 8px; /* Adjusted padding for the tooltip */
+    border-radius: 5px; /* Rounded corners */
+    white-space: normal;
+    max-width: 220px; /* Adjusted width */
+    z-index: 999;
+    font-size: 0.85em; /* Smaller font size */
+    font-weight: normal;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.skills li:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.skills h3 {
+    text-align: center; /* Centers the text horizontally */
+    font-size: 24px; /* Adjust font size for readability */
+    font-weight: 600; /* Slightly bold but not too heavy */
+    color: #444; /* Neutral gray or adjust to fit your design */
+    margin: 20px 0 10px; /* Adds vertical spacing around the header */
+    padding: 0;
+    letter-spacing: 0.5px; /* Subtle spacing between characters */
+}
+
+/* Interweb section */
+.interweb ul {
+    list-style: none;
+    text-align: center;
+}
+
+.interweb li {
+    margin-bottom: 10px;
 }
 
 /* Contact section */
-.contact form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.contact input,
-.contact textarea {
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.contact button {
-    padding: 10px 20px;
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.contact button:hover {
-    background-color: var(--button-hover-bg-color);
+.contact p {
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Footer */
 footer {
-    background-color: var(--header-bg-color);
-    color: var(--header-text-color);
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
     padding: 20px 0;
     text-align: center;
 }
 
 footer p {
     font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.social-media a {
+    color: var(--footer-text-color);
+    font-size: 24px;
+    margin: 0 10px;
 }
 
 .scroll-top {
@@ -324,6 +432,79 @@ footer p {
 .scroll-top.show {
     opacity: 1;
     visibility: visible;
+}
+
+/* Variables */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #333;
+    --header-bg-color: #a0a0a0;
+    --header-text-color: #000000;
+    --hero-bg-color: #80cc88;
+    --hero-text-color: #1A472A;
+    --section-bg-color: #fff;
+    --section-alt-bg-color: #f4f4f4;
+    --button-bg-color: #80cc88;
+    --button-text-color: #1A472A;
+    --button-hover-bg-color: #d35d6e;
+    --scroll-top-bg-color: #80cc88;
+    --scroll-top-text-color: #fff;
+    --link-color: #d35d6e;
+    --link-hover-color: #61dafb;
+    --chat-border-color: #ccc;
+    --input-border-color: #ccc;
+    --send-button-disabled-bg-color: grey;
+    --send-button-text-color: white;
+    --user-message-bg-color: #e0e0e0;
+    --response-message-bg-color: #80cc88;
+    --response-message-text-color: white;
+    --thinking-dot-color: #333;
+    --footer-bg-color: #a0a0a0;
+    --footer-text-color: #000000;
+    --skill-bg-color: #f0f0f0;
+    --skill-text-color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #121212;
+        --text-color: #fff;
+        --header-bg-color: #1f1f1f;
+        --header-text-color: #fff;
+        --hero-bg-color: #1f1f1f;
+        --hero-text-color: #80cc88;
+        --section-bg-color: #1f1f1f;
+        --section-alt-bg-color: #121212;
+        --button-bg-color: #1A472A;
+        --button-text-color: #fff;
+        --button-hover-bg-color: #121212;
+        --scroll-top-bg-color: #1A472A;
+        --scroll-top-text-color: #fff;
+        --link-color: #ffb3b3;
+        --link-hover-color: #61dafb;
+        --chat-border-color: #333;
+        --input-border-color: #333;
+        --send-button-disabled-bg-color: #444;
+        --user-message-bg-color: #333;
+        --response-message-bg-color: #1A472A;
+        --thinking-dot-color: #fff;
+        --footer-bg-color: #1f1f1f;
+        --footer-text-color: #fff;
+        --skill-bg-color: #333;
+        --skill-text-color: #fff;
+    }
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    color: var(--link-hover-color);
+    text-decoration: underline;
 }
 
 /* Responsive styles */
@@ -372,9 +553,5 @@ footer p {
 
     section h2 {
         font-size: 24px;
-    }
-
-    .project h3 {
-        font-size: 20px;
     }
 }
