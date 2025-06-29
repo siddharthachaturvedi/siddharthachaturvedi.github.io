@@ -3,9 +3,13 @@ class RefinedPortfolio {
   constructor() {
     this.nav = document.querySelector('.nav');
     this.navLinks = document.querySelectorAll('.nav-link');
+    this.navToggle = document.getElementById('nav-toggle');
+    this.navMobileOverlay = document.getElementById('nav-mobile-overlay');
+    this.navMobileLinks = document.querySelectorAll('.nav-mobile-link');
     this.sections = document.querySelectorAll('section[id]');
     this.isScrolling = false;
     this.activeSection = '';
+    this.isMobileMenuOpen = false;
     
     this.init();
   }
@@ -17,6 +21,7 @@ class RefinedPortfolio {
     this.setupResponsiveContent();
     this.setupIntersectionObserver();
     this.setupKeyboardNavigation();
+    this.setupMobileNavigation();
   }
   
   setupScrollSpy() {
@@ -235,6 +240,70 @@ class RefinedPortfolio {
         this.scrollToSection(this.sections[targetIndex].id);
       }
     });
+  }
+  
+  setupMobileNavigation() {
+    if (!this.navToggle || !this.navMobileOverlay) return;
+    
+    // Toggle mobile menu
+    this.navToggle.addEventListener('click', () => {
+      this.toggleMobileMenu();
+    });
+    
+    // Close menu when clicking overlay
+    this.navMobileOverlay.addEventListener('click', (e) => {
+      if (e.target === this.navMobileOverlay) {
+        this.closeMobileMenu();
+      }
+    });
+    
+    // Handle mobile menu links
+    this.navMobileLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        this.scrollToSection(targetId);
+        this.closeMobileMenu();
+      });
+    });
+    
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && this.isMobileMenuOpen) {
+        this.closeMobileMenu();
+      }
+    });
+    
+    // Close menu on resize to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && this.isMobileMenuOpen) {
+        this.closeMobileMenu();
+      }
+    });
+  }
+  
+  toggleMobileMenu() {
+    if (this.isMobileMenuOpen) {
+      this.closeMobileMenu();
+    } else {
+      this.openMobileMenu();
+    }
+  }
+  
+  openMobileMenu() {
+    this.isMobileMenuOpen = true;
+    this.navToggle.classList.add('active');
+    this.navToggle.setAttribute('aria-expanded', 'true');
+    this.navMobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    this.navToggle.classList.remove('active');
+    this.navToggle.setAttribute('aria-expanded', 'false');
+    this.navMobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
   }
 }
 

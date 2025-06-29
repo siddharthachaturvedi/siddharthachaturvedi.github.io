@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Siddhartha Chaturvedi • Strategic AI Visionary</title>
     <meta name="description" content="Former Microsoft Director pioneering post-agentic systems for scientific discovery. Available for strategic advisory and speaking engagements.">
     
@@ -11,35 +13,51 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     
-    <!-- Theme color -->
-    <meta name="theme-color" content="#FEFEFE">
-    
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
+    <!-- Modern Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-content">
-            <div class="nav-links">
+            <!-- Desktop Navigation -->
+            <div class="nav-links" id="nav-links">
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#recognition" class="nav-link">Recognition</a>
                 <a href="#current" class="nav-link">Current</a>
                 <a href="#connect" class="nav-link">Connect</a>
             </div>
+            
+            <!-- Modern Mobile Menu Toggle -->
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-mobile-overlay" id="nav-mobile-overlay">
+            <div class="nav-mobile-links">
+                <a href="#hero" class="nav-mobile-link">Home</a>
+                <a href="#about" class="nav-mobile-link">About</a>
+                <a href="#recognition" class="nav-mobile-link">Recognition</a>
+                <a href="#current" class="nav-mobile-link">Current</a>
+                <a href="#connect" class="nav-mobile-link">Connect</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="container">
+        <div class="container container-content">
             <div class="hero-content">
-                <h1 class="hero-name">
+                <h1 class="text-display hero-name">
                     <span class="name-first">Siddhartha</span>
                     <span class="name-last">Chaturvedi</span>
                 </h1>
-                <p class="hero-role">Founder • Stealth Startup</p>
-                <p class="hero-description">
+                <p class="text-title hero-role">Founder • Stealth Startup</p>
+                <p class="text-body-lg hero-description">
                     <span class="content-mobile">Building the post-agentic web for scientific discovery</span>
                     <span class="content-tablet">Transforming what-if moments into what's-next realities through next-generation AI systems</span>
                     <span class="content-desktop">Building the post-agentic web for scientific discovery. Transforming what-if moments into what's-next realities.</span>
@@ -51,27 +69,27 @@
     <!-- About Section -->
     <section class="section" id="about">
         <div class="container">
-            <div class="about-grid">
+            <div class="grid grid-asymmetric about-grid">
                 <div class="about-left">
-                    <h2 class="section-header">Previous Chapter</h2>
-                    <p class="chapter-org">Microsoft Strategic Missions & Technologies</p>
-                    <p class="chapter-role">Director of Product Management</p>
+                    <h2 class="text-headline section-header">Previous Chapter</h2>
+                    <p class="text-body-lg chapter-org">Microsoft Strategic Missions & Technologies</p>
+                    <p class="text-body chapter-role">Director of Product Management</p>
                 </div>
                 <div class="about-right">
-                    <p class="about-description">
+                    <p class="text-body-lg about-description">
                         <span class="content-mobile">Led AI innovation touching millions through federal deployments and healthcare breakthroughs.</span>
                         <span class="content-tablet">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
                         <span class="content-desktop">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
                     </p>
                     <div class="current-focus">
-                        <h3 class="focus-header">Current Focus</h3>
-                        <p class="focus-text">
+                        <h3 class="text-title focus-header">Current Focus</h3>
+                        <p class="text-body focus-text">
                             Post-agentic systems for under-represented diseases. Building beyond today's Human-AI augmentation toward tomorrow's research acceleration.
                         </p>
                     </div>
                     <blockquote class="philosophy">
-                        <p class="quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
-                        <cite class="quote-source">— Overheard at <span class="insead">INSEAD</span></cite>
+                        <p class="text-title quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
+                        <cite class="text-caption quote-source">— Overheard at <span class="insead">INSEAD</span></cite>
                     </blockquote>
                 </div>
             </div>
@@ -79,22 +97,22 @@
     </section>
 
     <!-- Recognition Section -->
-    <section class="section" id="recognition">
+    <section class="section section-alt" id="recognition">
         <div class="container">
-            <div class="recognition-grid">
+            <div class="grid recognition-grid">
                 <div class="recognition-item featured">
-                    <div class="recognition-badge">Recognition</div>
-                    <h3 class="recognition-title">Fast Company's World Changing Idea 2021</h3>
-                    <p class="recognition-subtitle">Microsoft Premonition</p>
-                    <p class="recognition-description">
+                    <div class="text-overline recognition-badge">Recognition</div>
+                    <h3 class="text-title recognition-title">Fast Company's World Changing Idea 2021</h3>
+                    <p class="text-body recognition-subtitle">Microsoft Premonition</p>
+                    <p class="text-body recognition-description">
                         <span class="content-mobile">Biothreat detection platform securing multi-million government contracts.</span>
                         <span class="content-tablet content-desktop">Biothreat detection platform securing multi-million government contracts.</span>
                     </p>
                 </div>
                 <div class="recognition-item">
-                    <div class="recognition-badge">Research Innovation</div>
-                    <h3 class="recognition-title">Biomedical Search Platform</h3>
-                    <p class="recognition-description">
+                    <div class="text-overline recognition-badge">Research Innovation</div>
+                    <h3 class="text-title recognition-title">Biomedical Search Platform</h3>
+                    <p class="text-body recognition-description">
                         <span class="content-mobile">Advanced search transforming scientific discovery.</span>
                         <span class="content-tablet content-desktop">Advanced search transforming how scientists discover and connect knowledge.</span>
                     </p>
@@ -106,27 +124,27 @@
     <!-- Current Work Section -->
     <section class="section current-section" id="current">
         <div class="container">
-            <div class="current-grid">
+            <div class="grid grid-asymmetric current-grid">
                 <div class="current-main">
-                    <h2 class="section-header">Current Investigations</h2>
+                    <h2 class="text-headline section-header">Current Investigations</h2>
                     <div class="investigations-list">
                         <div class="investigation-item">
-                            <h3 class="investigation-title">Post-Agentic AI Systems</h3>
-                            <p class="investigation-description">
+                            <h3 class="text-title investigation-title">Post-Agentic AI Systems</h3>
+                            <p class="text-body investigation-description">
                                 <span class="content-mobile">Next-generation scientific computing platforms.</span>
                                 <span class="content-tablet content-desktop">Next-generation scientific computing platforms that transcend current agent limitations.</span>
                             </p>
                         </div>
                         <div class="investigation-item">
-                            <h3 class="investigation-title">Scientific Knowledge Graphs</h3>
-                            <p class="investigation-description">
+                            <h3 class="text-title investigation-title">Scientific Knowledge Graphs</h3>
+                            <p class="text-body investigation-description">
                                 <span class="content-mobile">Reimagining research connections.</span>
                                 <span class="content-tablet content-desktop">Reimagining how research connections are discovered and accelerated.</span>
                             </p>
                         </div>
                         <div class="investigation-item">
-                            <h3 class="investigation-title">Public-Private Innovation</h3>
-                            <p class="investigation-description">
+                            <h3 class="text-title investigation-title">Public-Private Innovation</h3>
+                            <p class="text-body investigation-description">
                                 <span class="content-mobile">Healthcare partnerships through responsible AI.</span>
                                 <span class="content-tablet content-desktop">Healthcare and government partnerships through responsible AI governance.</span>
                             </p>
@@ -135,18 +153,18 @@
                 </div>
                 <div class="current-side">
                     <div class="advisory-section">
-                        <h3 class="advisory-header">Advisory & Investment</h3>
+                        <h3 class="text-title advisory-header">Advisory & Investment</h3>
                         <div class="advisory-items">
                             <div class="advisory-item">
-                                <span class="advisory-role">Limited Partner</span>
-                                <span class="advisory-org">rpv (DeepTech VC)</span>
+                                <span class="text-overline advisory-role">Limited Partner</span>
+                                <span class="text-body advisory-org">rpv (DeepTech VC)</span>
                             </div>
                             <div class="advisory-item">
-                                <span class="advisory-role">Advisor</span>
-                                <span class="advisory-org">Loyal VC</span>
+                                <span class="text-overline advisory-role">Advisor</span>
+                                <span class="text-body advisory-org">Loyal VC</span>
                             </div>
                         </div>
-                        <p class="availability">Available for strategic engagements.</p>
+                        <p class="text-caption availability">Available for strategic engagements.</p>
                     </div>
                 </div>
             </div>
@@ -157,26 +175,26 @@
     <section class="section connect-section" id="connect">
         <div class="container">
             <div class="connect-content">
-                <h2 class="section-header centered">Open to Conversations</h2>
+                <h2 class="text-headline section-header centered">Open to Conversations</h2>
                 
                 <div class="networks">
                     <div class="network-item">
-                        <span class="network-label">LinkedIn</span>
-                        <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener" class="network-link">/in/siddharth</a>
+                        <span class="text-overline network-label">LinkedIn</span>
+                        <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener" class="text-body-lg network-link">/in/siddharth</a>
                     </div>
                     <div class="network-item">
-                        <span class="network-label">Resume</span>
-                        <a href="/SIDDHARTHA%20CHATURVEDI.pdf" target="_blank" class="network-link">Download PDF</a>
+                        <span class="text-overline network-label">Resume</span>
+                        <a href="/SIDDHARTHA%20CHATURVEDI.pdf" target="_blank" class="text-body-lg network-link">Download PDF</a>
                     </div>
                 </div>
 
                 <div class="availability-section">
-                    <h3 class="availability-header">Currently Available</h3>
-                    <p class="availability-items">Strategic Advisory • Keynote Speaking • Board Positions</p>
+                    <h3 class="text-title availability-header">Currently Available</h3>
+                    <p class="text-body-lg availability-items">Strategic Advisory • Keynote Speaking • Board Positions</p>
                 </div>
 
                 <div class="location">
-                    <p class="location-text">
+                    <p class="text-body location-text">
                         <span class="content-mobile">US & Asia</span>
                         <span class="content-tablet content-desktop">Based between US & Asia<br>Available for global engagements</span>
                     </p>
