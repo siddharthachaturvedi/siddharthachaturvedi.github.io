@@ -573,6 +573,31 @@ a {
   padding-right: var(--space-md);
 }
 
+/* Hero Photo with Squircle Design */
+.hero-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.profile-image {
+  width: clamp(120px, 20vw, 200px);
+  height: clamp(120px, 20vw, 200px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 25%;
+  background: var(--bg-subtle);
+  border: 3px solid var(--border);
+  transition: var(--transition-slow);
+  box-shadow: var(--shadow-lg);
+}
+
+.profile-image:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--accent-primary);
+}
+
 .hero-name {
   font-size: var(--text-6xl);
   font-weight: 300;
@@ -622,6 +647,14 @@ a {
     padding-left: var(--space-sm);
     padding-right: var(--space-sm);
   }
+  .hero-photo {
+    margin-bottom: var(--space-xl);
+  }
+  .profile-image {
+    width: clamp(100px, 18vw, 160px);
+    height: clamp(100px, 18vw, 160px);
+    border-width: 2px;
+  }
   .hero-name {
     margin-bottom: var(--space-md);
   }
@@ -637,6 +670,14 @@ a {
   .hero-content {
     padding-top: clamp(40px, 5vh, 60px);
   }
+  .hero-photo {
+    margin-bottom: var(--space-lg);
+  }
+  .profile-image {
+    width: clamp(80px, 16vw, 120px);
+    height: clamp(80px, 16vw, 120px);
+    border-radius: 30%; /* Slightly more rounded on very small screens */
+  }
   .hero-name {
     letter-spacing: -0.01em;
   }
@@ -647,6 +688,11 @@ a {
   .hero-content {
     padding-left: var(--space-xs);
     padding-right: var(--space-xs);
+  }
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-width: 2px;
   }
 }
 
@@ -1178,6 +1224,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  
+  .profile-image:hover {
+    transform: none; /* Disable hover transforms on touch devices */
+    box-shadow: var(--shadow-lg);
+    border-color: var(--border);
   }
   
   .nav-toggle {
