@@ -7,7 +7,6 @@ class RefinedPortfolio {
     this.navMobileOverlay = document.getElementById('nav-mobile-overlay');
     this.navMobileLinks = document.querySelectorAll('.nav-mobile-link');
     this.sections = document.querySelectorAll('section[id]');
-    this.isScrolling = false;
     this.activeSection = '';
     this.isMobileMenuOpen = false;
     
@@ -17,7 +16,6 @@ class RefinedPortfolio {
   init() {
     this.setupScrollSpy();
     this.setupSmoothNavigation();
-    this.setupSnapScrolling();
     this.setupResponsiveContent();
     this.setupIntersectionObserver();
     this.setupKeyboardNavigation();
@@ -67,8 +65,6 @@ class RefinedPortfolio {
     const targetSection = document.getElementById(sectionId);
     if (!targetSection) return;
     
-    this.isScrolling = true;
-    
     // Calculate offset to center section in viewport
     const sectionHeight = targetSection.offsetHeight;
     const viewportHeight = window.innerHeight;
@@ -85,58 +81,6 @@ class RefinedPortfolio {
       top: Math.max(0, scrollPosition),
       behavior: 'smooth'
     });
-    
-    // Reset scrolling flag after animation
-    setTimeout(() => {
-      this.isScrolling = false;
-    }, 1000);
-  }
-  
-  setupSnapScrolling() {
-    let scrollTimeout;
-    
-    // Enhanced scroll snapping for better UX
-    window.addEventListener('scroll', () => {
-      if (this.isScrolling) return;
-      
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        this.snapToNearestSection();
-      }, 150);
-    }, { passive: true });
-    
-    // Handle wheel events for better snap control
-    let wheelTimeout;
-    window.addEventListener('wheel', (e) => {
-      if (this.isScrolling) return;
-      
-      clearTimeout(wheelTimeout);
-      wheelTimeout = setTimeout(() => {
-        if (Math.abs(e.deltaY) > 50) {
-          this.snapToNearestSection();
-        }
-      }, 100);
-    }, { passive: true });
-  }
-  
-  snapToNearestSection() {
-    const viewportCenter = window.scrollY + window.innerHeight / 2;
-    let closestSection = null;
-    let closestDistance = Infinity;
-    
-    this.sections.forEach(section => {
-      const sectionCenter = section.offsetTop + section.offsetHeight / 2;
-      const distance = Math.abs(viewportCenter - sectionCenter);
-      
-      if (distance < closestDistance) {
-        closestDistance = distance;
-        closestSection = section;
-      }
-    });
-    
-    if (closestSection && closestDistance > 100) {
-      this.scrollToSection(closestSection.id);
-    }
   }
   
   setupResponsiveContent() {
@@ -489,9 +433,9 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         if ('performance' in window) {
           const perfData = performance.getEntriesByType('navigation')[0];
-          console.log('🚀 Page Performance:');
-          console.log(`📊 Load Time: ${Math.round(perfData.loadEventEnd - perfData.loadEventStart)}ms`);
-          console.log(`🎨 DOM Content Loaded: ${Math.round(perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart)}ms`);
+          // console.log('🚀 Page Performance:');
+          // console.log(`📊 Load Time: ${Math.round(perfData.loadEventEnd - perfData.loadEventStart)}ms`);
+          // console.log(`🎨 DOM Content Loaded: ${Math.round(perfData.domContentLoadedEventEnd - perfData.domContentLoadedEventStart)}ms`);
         }
       }, 100);
     });
@@ -502,10 +446,10 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     // Pause any heavy operations when page is hidden
-    console.log('📱 Page hidden - pausing operations');
+    // console.log('📱 Page hidden - pausing operations');
   } else {
     // Resume operations when page becomes visible
-    console.log('👁️ Page visible - resuming operations');
+    // console.log('👁️ Page visible - resuming operations');
   }
 });
 
