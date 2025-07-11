@@ -1228,6 +1228,23 @@ a {
   text-decoration: underline;
 }
 
+.network-button {
+  background-color: var(--accent-primary);
+  color: white !important;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+
+.network-button:hover {
+  background-color: var(--accent-hover);
+  color: white !important;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
 .availability-section {
   margin-bottom: var(--space-3xl);
 }
