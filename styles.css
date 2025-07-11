@@ -1078,6 +1078,117 @@ a {
   text-align: center;
 }
 
+/* Calendly Integration */
+.calendly-cta {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+  padding: var(--space-xl);
+  background: linear-gradient(135deg, var(--bg-subtle) 0%, var(--bg-muted) 100%);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border);
+}
+
+.calendly-intro {
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-size: var(--text-lg);
+}
+
+.calendly-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--accent-primary);
+  color: white;
+  text-decoration: none;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: var(--text-lg);
+  transition: var(--transition-base);
+  box-shadow: var(--shadow-md);
+  border: none;
+  cursor: pointer;
+  min-height: 48px; /* Touch-friendly */
+}
+
+.calendly-button:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.calendly-button:focus {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+.calendly-button-text {
+  font-size: var(--text-base);
+  line-height: 1;
+}
+
+.calendly-button-icon {
+  font-size: var(--text-lg);
+  transition: var(--transition-fast);
+}
+
+.calendly-button:hover .calendly-button-icon {
+  transform: translateX(2px);
+}
+
+/* Enhanced mobile responsiveness for Calendly */
+@media (max-width: 768px) {
+  .calendly-cta {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .calendly-intro {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-md);
+  }
+  
+  .calendly-button {
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-base);
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendly-cta {
+    padding: var(--space-md);
+  }
+  
+  .calendly-intro {
+    font-size: var(--text-sm);
+  }
+  
+  .calendly-button {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-sm);
+  }
+  
+  .calendly-button-text {
+    font-size: var(--text-sm);
+  }
+}
+
+/* Touch-friendly interactions for Calendly button */
+@media (hover: none) and (pointer: coarse) {
+  .calendly-button {
+    min-height: 52px;
+    padding: var(--space-md) var(--space-xl);
+  }
+  
+  .calendly-button:hover {
+    transform: none;
+    background: var(--accent-hover);
+  }
+}
+
 .networks {
   display: flex;
   justify-content: center;
