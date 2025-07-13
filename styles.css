@@ -435,36 +435,11 @@ a {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFF 0%, #F8FAFC 100%);
+  background: var(--bg-primary);
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all var(--transition-slow) ease-out;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-}
-
-/* Sun rays for light mode */
-.toggle-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 8px;
-  height: 8px;
-  background: #FFA500;
-  border-radius: 50%;
-  box-shadow: 
-    0 0 0 2px #FFD700,
-    0 -8px 0 -6px #FFD700,
-    0 8px 0 -6px #FFD700,
-    -8px 0 0 -6px #FFD700,
-    8px 0 0 -6px #FFD700,
-    -6px -6px 0 -6px #FFD700,
-    6px -6px 0 -6px #FFD700,
-    -6px 6px 0 -6px #FFD700,
-    6px 6px 0 -6px #FFD700;
-  transition: var(--transition-slow);
-  opacity: 1;
+  border: 1px solid var(--border);
 }
 
 .theme-toggle-checkbox:checked + .theme-toggle {
@@ -472,43 +447,10 @@ a {
 }
 
 .theme-toggle-checkbox:checked + .theme-toggle .toggle-button {
-  background: linear-gradient(135deg, #E2E8F0 0%, #CBD5E1 100%);
+  background: var(--text-tertiary);
   transform: translateX(22px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border-color: rgba(226, 232, 240, 0.8);
-}
-
-/* Moon craters for dark mode */
-.theme-toggle-checkbox:checked + .theme-toggle .toggle-button::before {
-  background: #94A3B8;
-  box-shadow: 
-    -2px -2px 0 -1px #64748B,
-    2px -1px 0 -1px #64748B,
-    -1px 2px 0 -1px #64748B,
-    1px 1px 0 -1px #64748B;
-  opacity: 0.8;
-}
-
-/* Stars in dark mode background */
-.theme-toggle::after {
-  content: '';
-  position: absolute;
-  top: 6px;
-  right: 8px;
-  width: 2px;
-  height: 2px;
-  background: #FFF;
-  border-radius: 50%;
-  box-shadow: 
-    4px 2px 0 0 #FFF,
-    -2px 4px 0 0 #FFF,
-    6px -2px 0 0 #FFF;
-  opacity: 0;
-  transition: var(--transition-slow);
-}
-
-.theme-toggle-checkbox:checked + .theme-toggle::after {
-  opacity: 0.8;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-color: var(--text-tertiary);
 }
 
 /* Hover effects */
@@ -517,7 +459,7 @@ a {
 }
 
 .theme-toggle:hover .toggle-button {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Focus states for accessibility */
@@ -557,11 +499,6 @@ a {
   .theme-toggle-checkbox:checked + .theme-toggle .toggle-button {
     transform: translateX(18px);
   }
-}
-
-/* Remove old crater and star styles */
-.crater, .star {
-  display: none;
 }
 
 /* Dark theme mobile overlay */
