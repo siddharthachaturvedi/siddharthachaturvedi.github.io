@@ -1342,14 +1342,17 @@ a {
 @media (max-width: 480px) {
   .connect-content {
     padding: 0 var(--space-sm);
+    text-align: center;
   }
   .networks {
     flex-direction: column;
     gap: var(--space-xl);
     margin-bottom: var(--space-xl);
+    align-items: center;
   }
   .network-item {
     gap: var(--space-xs);
+    align-items: center;
   }
   .network-label {
     font-size: var(--text-xs);
