@@ -6,20 +6,61 @@ class RefinedPortfolio {
     this.navToggle = document.getElementById('nav-toggle');
     this.navMobileOverlay = document.getElementById('nav-mobile-overlay');
     this.navMobileLinks = document.querySelectorAll('.nav-mobile-link');
+    this.themeToggle = document.getElementById('theme-toggle');
     this.sections = document.querySelectorAll('section[id]');
     this.activeSection = '';
     this.isMobileMenuOpen = false;
+    this.isDarkTheme = false;
     
     this.init();
   }
   
   init() {
+    this.setupThemeToggle();
     this.setupScrollSpy();
     this.setupSmoothNavigation();
     this.setupResponsiveContent();
     this.setupIntersectionObserver();
     this.setupKeyboardNavigation();
     this.setupMobileNavigation();
+  }
+  
+  setupThemeToggle() {
+    if (!this.themeToggle) return;
+    
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      this.enableDarkTheme();
+    } else {
+      this.enableLightTheme();
+    }
+    
+    // Listen for theme toggle changes
+    this.themeToggle.addEventListener('change', () => {
+      if (this.themeToggle.checked) {
+        this.enableDarkTheme();
+      } else {
+        this.enableLightTheme();
+      }
+    });
+  }
+  
+  enableDarkTheme() {
+    this.isDarkTheme = true;
+    document.body.classList.add('dark-theme');
+    this.themeToggle.checked = true;
+    localStorage.setItem('theme', 'dark');
+  }
+  
+  enableLightTheme() {
+    this.isDarkTheme = false;
+    document.body.classList.remove('dark-theme');
+    this.themeToggle.checked = false;
+    localStorage.setItem('theme', 'light');
   }
   
   setupScrollSpy() {
