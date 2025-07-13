@@ -1,133 +1,156 @@
-# Siddhartha Chaturvedi • Strategic AI Visionary
+# Siddhartha Chaturvedi
 
 <div align="center">
-  <img src="https://media.licdn.com/dms/image/v2/D5603AQHgq8TpWBFHIQ/profile-displayphoto-crop_800_800/B56ZfeEX4VHQAI-/0/1751777378877?e=1757548800&v=beta&t=KPjIkASm1vIvvmDhmlnnk0vNKexA_mr-ytUJUaDigEo" alt="Siddhartha Chaturvedi" width="200" style="border-radius: 25%; margin-bottom: 20px;">
+  <img src="https://media.licdn.com/dms/image/v2/D5603AQHgq8TpWBFHIQ/profile-displayphoto-crop_800_800/B56ZfeEX4VHQAI-/0/1751777378877?e=1757548800&v=beta&t=KPjIkASm1vIvvmDhmlnnk0vNKexA_mr-ytUJUaDigEo" alt="Siddhartha Chaturvedi" width="180" style="border-radius: 25%;">
+  
+  <h3>Strategic AI Visionary • Founder</h3>
+  <p><em>Building the post-agentic web for scientific discovery</em></p>
+  
+  [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-2563EB?style=for-the-badge)](https://siddharthachaturvedi.github.io)
+  [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/siddharth)
+  [![Schedule](https://img.shields.io/badge/📅_Schedule-15min_Chat-059669?style=for-the-badge)](https://calendly.com/s-sidc/15min)
 </div>
-
-> **Former Microsoft Director pioneering post-agentic systems for scientific discovery**
-
-[![Live Website](https://img.shields.io/badge/🌐_Live_Website-Visit-blue?style=for-the-badge)](https://siddharthachaturvedi.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/siddharth)
 
 ---
 
-## 🎯 **About**
+## 🎯 About
 
-**Siddhartha Chaturvedi** is a strategic AI visionary and founder currently building the next generation of scientific discovery platforms. As former Director of Product Management at Microsoft Strategic Missions & Technologies, he led AI innovations that touched millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.
+**Former Microsoft Director** pioneering next-generation AI systems for scientific discovery. Led AI innovations touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.
 
-### Current Focus
+> *"Strategy without execution is hallucination. Execution without strategy is chaos."*
 
+### 🚀 Current Focus
 - **Post-agentic systems** for under-represented diseases
-- Building beyond today's Human-AI augmentation toward tomorrow's research acceleration
+- Building beyond Human-AI augmentation toward research acceleration
 - Transforming what-if moments into what's-next realities
 
 ---
 
-## 🏆 **Recognition & Achievements**
+## 🏆 Recognition
 
-### **Fast Company's World Changing Idea 2021**
+<table>
+<tr>
+<td width="50%">
 
-**Microsoft Premonition** - Biothreat detection platform securing multi-million government contracts
+### 🌟 Fast Company's World Changing Idea 2021
+**Microsoft Premonition**  
+Biothreat detection platform securing multi-million government contracts
 
-### **Research Innovation**
+</td>
+<td width="50%">
 
-**Biomedical Search Platform** - Advanced search transforming how scientists discover and connect knowledge
+### 🔬 Research Innovation
+**Biomedical Search Platform**  
+Advanced search transforming scientific discovery
 
----
-
-## 🔬 **Current Investigations**
-
-### **Post-Agentic AI Systems**
-
-Next-generation scientific computing platforms that transcend current agent limitations
-
-### **Scientific Knowledge Graphs**
-
-Reimagining how research connections are discovered and accelerated
-
-### **Public-Private Innovation**
-
-Healthcare and government partnerships through responsible AI governance
+</td>
+</tr>
+</table>
 
 ---
 
-## 💼 **Advisory & Investment**
+## 🔬 Current Investigations
 
-- **Limited Partner** • rpv (DeepTech VC)
-- **Advisor** • Loyal VC
-- Available for strategic engagements
+```mermaid
+graph LR
+    A[Post-Agentic AI] --> B[Scientific Computing]
+    C[Knowledge Graphs] --> D[Research Acceleration]
+    E[Public-Private] --> F[Healthcare Innovation]
+```
+
+| Focus Area | Description |
+|------------|-------------|
+| **Post-Agentic AI Systems** | Next-generation scientific computing platforms |
+| **Scientific Knowledge Graphs** | Reimagining research connections and discovery |
+| **Public-Private Innovation** | Healthcare partnerships through responsible AI |
 
 ---
 
-## 🌐 **Currently Available For**
+## 💼 Advisory & Investment
 
-- **Strategic Advisory**
-- **Keynote Speaking**
-- **Board Positions**
+<div align="center">
 
-Based between US & Asia • Available for global engagements
+| Role | Organization | Focus |
+|------|-------------|-------|
+| **Limited Partner** | rpv (DeepTech VC) | Deep Technology Investments |
+| **Advisor** | Loyal VC | Strategic Guidance |
+
+</div>
+
+### 🎯 Available For
+- 🎤 **Keynote Speaking**
+- 🏛️ **Board Positions** 
+- 🤝 **Strategic Advisory**
 
 ---
 
-## 🎨 **Website Technical Details**
+## 🌐 Portfolio Website
 
-This is a refined, minimal portfolio website built with modern web technologies and design principles.
+This repository hosts a refined, minimal portfolio built with modern web technologies.
 
-### **Design System**
+### ✨ Features
 
-- **Typography**: Inter + Playfair Display font pairing
-- **Color Palette**: Off-white (#FEFEFE) background with charcoal text hierarchy
-- **Layout**: Responsive grid system with scroll-snapping sections
-- **Interactions**: Subtle animations and smooth transitions
+<div align="center">
 
-### **Features**
+| Feature | Description |
+|---------|-------------|
+| 📱 **Responsive Design** | Mobile-first, optimized for all devices |
+| ♿ **Accessibility** | WCAG compliant with proper focus states |
+| 🎨 **Modern CSS** | Custom properties, Grid, Flexbox |
+| ⚡ **Performance** | Optimized fonts, images, animations |
+| 🎭 **Scroll Snapping** | Smooth section navigation |
 
-- ✨ **Scroll Snapping**: Each section snaps perfectly to the viewport
-- 📱 **Responsive Design**: Optimized for mobile, tablet, and desktop
-- ♿ **Accessibility**: WCAG compliant with proper focus states
-- 🎭 **Performance**: Optimized fonts, images, and animations
-- 🎨 **Modern CSS**: Custom properties, CSS Grid, and Flexbox
+</div>
 
-### **Technology Stack**
+### 🛠️ Tech Stack
 
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with custom properties
-- **JavaScript** - Progressive enhancement and interactions
-- **Google Fonts** - Inter & Playfair Display typography
+```
+Frontend:  HTML5 • CSS3 • Vanilla JavaScript
+Fonts:     Inter • Playfair Display
+Hosting:   GitHub Pages
+Design:    Mobile-first responsive
+```
 
-### **File Structure**
+### 🎨 Design System
 
-```text
-├── index.html          # Main page content
-├── styles.css          # Complete styling system
-├── script.js           # Interactive functionality
-├── README.md           # This documentation
-└── SIDDHARTHA CHATURVEDI.pdf  # Resume/CV
+- **Typography**: Inter + Playfair Display pairing
+- **Colors**: Off-white (#FEFEFE) with charcoal hierarchy
+- **Layout**: Responsive grid with scroll-snapping
+- **Interactions**: Subtle animations and transitions
+
+---
+
+## 📁 Project Structure
+
+```
+📦 siddharthachaturvedi.github.io
+├── 📄 index.html              # Main portfolio page
+├── 🎨 styles.css              # Complete design system
+├── ⚡ script.js               # Interactive functionality
+├── 📋 README.md               # This documentation
+├── 📄 SIDDHARTHA CHATURVEDI.pdf  # Resume/CV
+└── ⚙️ .github/workflows/      # GitHub Pages deployment
 ```
 
 ---
 
-## 📞 **Connect**
+## 🤝 Connect
 
-### **Professional Networks**
+<div align="center">
 
-- **LinkedIn**: [/in/siddharth](https://linkedin.com/in/siddharth)
-- **Resume**: [Download PDF](./SIDDHARTHA%20CHATURVEDI.pdf)
+### Professional Networks
 
-### **Philosophy**
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-/in/siddharth-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/siddharth)
+[![Resume](https://img.shields.io/badge/Resume-Download_PDF-DC2626?style=for-the-badge&logo=adobe&logoColor=white)](./SIDDHARTHA%20CHATURVEDI.pdf)
 
-> *"Strategy without execution is hallucination. Execution without strategy is chaos."*
->
-> — Overheard at INSEAD
+### 🌍 Location
+**Based between US & Asia** • Available for global engagements
 
-## 📋 **Project Information**
-
-- **Repository**: siddharthachaturvedi.github.io
-- **Owner**: siddharthachaturvedi
-- **Branch**: main
-- **Hosting**: GitHub Pages
-- **License**: All rights reserved
+</div>
 
 ---
 
-Last updated: June 2025
+<div align="center">
+  <sub>Built with ❤️ for scientific discovery and innovation</sub><br>
+  <sub>© 2025 Siddhartha Chaturvedi • All rights reserved</sub>
+</div>
