@@ -1,5 +1,9 @@
 # Siddhartha Chaturvedi • Strategic AI Visionary
 
+<div align="center">
+  <img src="https://media.licdn.com/dms/image/v2/D5603AQHgq8TpWBFHIQ/profile-displayphoto-crop_800_800/B56ZfeEX4VHQAI-/0/1751777378877?e=1757548800&v=beta&t=KPjIkASm1vIvvmDhmlnnk0vNKexA_mr-ytUJUaDigEo" alt="Siddhartha Chaturvedi" width="200" style="border-radius: 25%; margin-bottom: 20px;">
+</div>
+
 > **Former Microsoft Director pioneering post-agentic systems for scientific discovery**
 
 [![Live Website](https://img.shields.io/badge/🌐_Live_Website-Visit-blue?style=for-the-badge)](https://siddharthachaturvedi.github.io)
