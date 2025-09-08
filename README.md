@@ -128,7 +128,7 @@ Design:    Mobile-first responsive
 ├── 🎨 styles.css              # Complete design system
 ├── ⚡ script.js               # Interactive functionality
 ├── 📋 README.md               # This documentation
-├── 📄 SIDDHARTHA CHATURVEDI.pdf  # Resume/CV
+├── 📄 sidc_resume.pdf         # Resume/CV
 └── ⚙️ .github/workflows/      # GitHub Pages deployment
 ```
 
@@ -142,6 +142,7 @@ Design:    Mobile-first responsive
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-/in/siddharth-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/siddharth)
 [![Resume](https://img.shields.io/badge/Resume-Download_PDF-DC2626?style=for-the-badge&logo=adobe&logoColor=white)](./SIDDHARTHA%20CHATURVEDI.pdf)
+[![Resume](https://img.shields.io/badge/Resume-Download_PDF-DC2626?style=for-the-badge&logo=adobe&logoColor=white)](./sidc_resume.pdf)
 
 ### 🌍 Location
 **Based between US & Asia** • Available for global engagements
