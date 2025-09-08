@@ -34,8 +34,13 @@
             
             <!-- Navigation Actions -->
             <div class="nav-actions">
-                <!-- Current Time -->
-                <span id="current-time"></span>
+                <!-- Theme Toggle -->
+                <div class="theme-toggle-wrapper">
+                    <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
+                    <label for="theme-toggle" class="theme-toggle">
+                        <span class="toggle-button"></span>
+                    </label>
+                </div>
                 
                 <!-- Mobile Menu Toggle -->
                 <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
@@ -60,8 +65,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="section-label">PORTFOLIO.IO.2024</div>
-        <div class="vertical-text-label">PORTFOLIO.IO.2024</div>
         <div class="container container-content">
             <div class="hero-content">
                 <div class="hero-photo">
@@ -72,15 +75,17 @@
                     <span class="name-last">Chaturvedi</span>
                 </h1>
                 <p class="text-title hero-role">Founder • Stealth Startup</p>
-                <p class="text-body-lg hero-role">[FOUNDER • STEALTH STARTUP]</p>
-                <p class="text-body-lg hero-description">Building the post-agentic web for scientific discovery. Transforming what-if moments into what's-next realities.</p>
+                <p class="text-body-lg hero-description">
+                    <span class="content-mobile">Building the post-agentic web for scientific discovery</span>
+                    <span class="content-tablet">Transforming what-if moments into what's-next realities through next-generation AI systems</span>
+                    <span class="content-desktop">Building the post-agentic web for scientific discovery. Transforming what-if moments into what's-next realities.</span>
+                </p>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="section" id="about">
-        <div class="section-label">PREVIOUS.CHAPTER</div>
         <div class="container">
             <div class="grid grid-asymmetric about-grid">
                 <div class="about-left">
@@ -89,7 +94,11 @@
                     <p class="text-body chapter-role">Director of Product Management</p>
                 </div>
                 <div class="about-right">
-                    <p class="text-body-lg about-description">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</p>
+                    <p class="text-body-lg about-description">
+                        <span class="content-mobile">Led AI innovation touching millions through federal deployments and healthcare breakthroughs.</span>
+                        <span class="content-tablet">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
+                        <span class="content-desktop">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
+                    </p>
                     <div class="current-focus">
                         <h3 class="text-title focus-header">Current Focus</h3>
                         <p class="text-body focus-text">
@@ -98,7 +107,7 @@
                     </div>
                     <blockquote class="philosophy">
                         <p class="text-title quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
-                        <cite class="text-caption quote-source">— Overheard at business school</cite>
+                        <cite class="text-caption quote-source">— Overheard at <span class="insead">INSEAD</span></cite>
                     </blockquote>
                 </div>
             </div>
@@ -107,19 +116,24 @@
 
     <!-- Recognition Section -->
     <section class="section section-alt" id="recognition">
-        <div class="section-label">RECOGNITION.ARCHIVE</div>
         <div class="container">
             <div class="grid recognition-grid">
                 <div class="recognition-item featured">
                     <div class="text-overline recognition-badge">Recognition</div>
                     <h3 class="text-title recognition-title">Fast Company's World Changing Idea 2021</h3>
                     <p class="text-body recognition-subtitle">Microsoft Premonition</p>
-                    <p class="text-body recognition-description">Biothreat detection platform securing multi-million government contracts.</p>
+                    <p class="text-body recognition-description">
+                        <span class="content-mobile">Biothreat detection platform securing multi-million government contracts.</span>
+                        <span class="content-tablet content-desktop">Biothreat detection platform securing multi-million government contracts.</span>
+                    </p>
                 </div>
                 <div class="recognition-item">
                     <div class="text-overline recognition-badge">Research Innovation</div>
                     <h3 class="text-title recognition-title">Biomedical Search Platform</h3>
-                    <p class="text-body recognition-description">Advanced search transforming how scientists discover and connect knowledge.</p>
+                    <p class="text-body recognition-description">
+                        <span class="content-mobile">Advanced search transforming scientific discovery.</span>
+                        <span class="content-tablet content-desktop">Advanced search transforming how scientists discover and connect knowledge.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -127,7 +141,6 @@
 
     <!-- Current Work Section -->
     <section class="section current-section" id="current">
-        <div class="section-label">CURRENT.FOCUS</div>
         <div class="container">
             <div class="grid grid-asymmetric current-grid">
                 <div class="current-main">
@@ -135,21 +148,29 @@
                     <div class="investigations-list">
                         <div class="investigation-item">
                             <h3 class="text-title investigation-title">Post-Agentic AI Systems</h3>
-                            <p class="text-body investigation-description">Next-generation scientific computing platforms that transcend current agent limitations.</p>
+                            <p class="text-body investigation-description">
+                                <span class="content-mobile">Next-generation scientific computing platforms.</span>
+                                <span class="content-tablet content-desktop">Next-generation scientific computing platforms that transcend current agent limitations.</span>
+                            </p>
                         </div>
                         <div class="investigation-item">
                             <h3 class="text-title investigation-title">Scientific Knowledge Graphs</h3>
-                            <p class="text-body investigation-description">Reimagining how research connections are discovered and accelerated.</p>
+                            <p class="text-body investigation-description">
+                                <span class="content-mobile">Reimagining research connections.</span>
+                                <span class="content-tablet content-desktop">Reimagining how research connections are discovered and accelerated.</span>
+                            </p>
                         </div>
                         <div class="investigation-item">
                             <h3 class="text-title investigation-title">Public-Private Innovation</h3>
-                            <p class="text-body investigation-description">Healthcare and government partnerships through responsible AI governance.</p>
+                            <p class="text-body investigation-description">
+                                <span class="content-mobile">Healthcare partnerships through responsible AI.</span>
+                                <span class="content-tablet content-desktop">Healthcare and government partnerships through responsible AI governance.</span>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="current-side">
                     <div class="advisory-section">
-                        <div class="section-label">ADVISORY.INVESTMENT</div>
                         <h3 class="text-title advisory-header">Advisory & Investment</h3>
                         <div class="advisory-items">
                             <div class="advisory-item">
@@ -170,7 +191,6 @@
 
     <!-- Connect Section -->
     <section class="section connect-section" id="connect">
-        <div class="section-label">LET'S.CONNECT</div>
         <div class="container">
             <div class="connect-content">
                 <h2 class="text-headline section-header centered">Let's Talk</h2>
@@ -196,15 +216,14 @@
                 </div>
 
                 <div class="location">
-                    <p class="text-body location-text">Based between US, UK & Asia<br>Available for global engagements</p>
+                    <p class="text-body location-text">
+                        <span class="content-mobile">US, UK & Asia</span>
+                        <span class="content-tablet content-desktop">Based between US, UK & Asia<br>Available for global engagements</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <span class="footer-left-text">NOW VIEWING: SIDDHARTHA CHATURVEDI</span>
-    <span class="footer-right-text">2025 • ALL RIGHTS RESERVED</span>
 
     <script src="script.js"></script>
 </body>

@@ -6,41 +6,61 @@ class RefinedPortfolio {
     this.navToggle = document.getElementById('nav-toggle');
     this.navMobileOverlay = document.getElementById('nav-mobile-overlay');
     this.navMobileLinks = document.querySelectorAll('.nav-mobile-link');
+    this.themeToggle = document.getElementById('theme-toggle');
     this.sections = document.querySelectorAll('section[id]');
     this.activeSection = '';
     this.isMobileMenuOpen = false;
+    this.isDarkTheme = false;
     
     this.init();
   }
   
   init() {
+    this.setupThemeToggle();
     this.setupScrollSpy();
     this.setupSmoothNavigation();
+    this.setupResponsiveContent();
     this.setupIntersectionObserver();
     this.setupKeyboardNavigation();
     this.setupMobileNavigation();
-    this.updateCurrentTime();
   }
   
-  updateCurrentTime() {
-    const updateTime = () => {
-      const now = new Date();
-      const timeString = now.toLocaleTimeString('en-US', {
-        hour12: false,
-        hour: '2-digit',
-        minute: '2-digit'
-      });
-      const currentTimeElement = document.getElementById('current-time');
-      if (currentTimeElement) {
-        currentTimeElement.textContent = timeString;
+  setupThemeToggle() {
+    if (!this.themeToggle) return;
+    
+    // Load saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    // Set initial theme
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      this.enableDarkTheme();
+    } else {
+      this.enableLightTheme();
+    }
+    
+    // Listen for theme toggle changes
+    this.themeToggle.addEventListener('change', () => {
+      if (this.themeToggle.checked) {
+        this.enableDarkTheme();
+      } else {
+        this.enableLightTheme();
       }
-    };
-    
-    // Update immediately
-    updateTime();
-    
-    // Update every minute
-    setInterval(updateTime, 60000);
+    });
+  }
+  
+  enableDarkTheme() {
+    this.isDarkTheme = true;
+    document.body.classList.add('dark-theme');
+    this.themeToggle.checked = true;
+    localStorage.setItem('theme', 'dark');
+  }
+  
+  enableLightTheme() {
+    this.isDarkTheme = false;
+    document.body.classList.remove('dark-theme');
+    this.themeToggle.checked = false;
+    localStorage.setItem('theme', 'light');
   }
   
   setupScrollSpy() {
@@ -104,9 +124,70 @@ class RefinedPortfolio {
     });
   }
   
+  setupResponsiveContent() {
+    let resizeTimeout;
+    
+    const updateContentVisibility = () => {
+      const viewport = this.getViewportSize();
+      document.body.setAttribute('data-viewport', viewport);
+      
+      // Update content visibility based on viewport
+      const mobileContent = document.querySelectorAll('.content-mobile');
+      const tabletContent = document.querySelectorAll('.content-tablet');
+      const desktopContent = document.querySelectorAll('.content-desktop');
+      
+      [mobileContent, tabletContent, desktopContent].forEach(contentList => {
+        contentList.forEach(el => {
+          el.style.display = window.getComputedStyle(el).display;
+        });
+      });
+    };
+    
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateContentVisibility, 100);
+    });
+    
+    // Initial call
+    updateContentVisibility();
+  }
+  
+  getViewportSize() {
+    const width = window.innerWidth;
+    if (width < 768) return 'mobile';
+    if (width < 1024) return 'tablet';
+    return 'desktop';
+  }
+  
   setupIntersectionObserver() {
-    // Simplified intersection observer for static aesthetic
-    // Removed animations to align with flat design
+    // Subtle animations for elements coming into view
+    const animationObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -10% 0px'
+    });
+    
+    // Apply subtle entrance animations
+    const animatedElements = document.querySelectorAll(`
+      .recognition-item,
+      .investigation-item,
+      .advisory-section,
+      .network-item,
+      .availability-section
+    `);
+    
+    animatedElements.forEach((el, index) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      animationObserver.observe(el);
+    });
   }
   
   setupKeyboardNavigation() {
@@ -253,11 +334,11 @@ const setupLinkInteractions = () => {
     
     // Smooth hover effects
     link.addEventListener('mouseenter', function() {
-      // Simplified hover - only color change
+      this.style.transform = 'translateY(-1px)';
     });
     
     link.addEventListener('mouseleave', function() {
-      // Simplified hover - only color change
+      this.style.transform = 'translateY(0)';
     });
   });
 };
