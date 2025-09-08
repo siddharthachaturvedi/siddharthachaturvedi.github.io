@@ -1,24 +1,24 @@
 /* CSS Custom Properties */
 :root {
   /* Refined Color Palette - Off-white & Charcoal */
-  --bg-primary: #FEFEFE;      /* Pure off-white background */
-  --bg-subtle: #F8FAFC;       /* Slate 50 - section backgrounds */
-  --bg-muted: #F1F5F9;        /* Slate 100 - card backgrounds */
+  --bg-primary: #FDFCFB;      /* Warm off-white with subtle cream undertone */
+  --bg-subtle: #F7F5F3;       /* Warm neutral - section backgrounds */
+  --bg-muted: #F0EDE8;        /* Warm muted - card backgrounds */
   
   /* Text Colors - Charcoal Hierarchy */
-  --text-primary: #0F172A;    /* Slate 900 - main text (charcoal) */
-  --text-secondary: #475569;  /* Slate 600 - supporting text */
-  --text-tertiary: #94A3B8;   /* Slate 400 - subtle text */
+  --text-primary: #1A1614;    /* Rich warm charcoal - main text */
+  --text-secondary: #4A453F;  /* Warm gray - supporting text */
+  --text-tertiary: #8B8680;   /* Warm muted - subtle text */
   
   /* Brand Colors - Refined and Subtle */
-  --accent-primary: #3B82F6;  /* Blue 500 - links, CTAs */
-  --accent-hover: #2563EB;    /* Blue 600 - hover states */
-  --success: #059669;         /* Emerald 600 - achievements */
-  --border: #E2E8F0;          /* Slate 200 - subtle borders */
+  --accent-primary: #2563EB;  /* Refined blue - links, CTAs */
+  --accent-hover: #1D4ED8;    /* Deeper blue - hover states */
+  --success: #047857;         /* Rich emerald - achievements */
+  --border: #E8E3DD;          /* Warm border - subtle borders */
   
   /* Interactive States */
-  --hover: #F0F0F0;
-  --active: #E5E5E5;
+  --hover: #F5F2EF;
+  --active: #EBE6E0;
   
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
@@ -91,24 +91,24 @@
 /* Dark Theme Variables */
 .dark-theme {
   /* Dark Color Palette */
-  --bg-primary: #0F172A;        /* Slate 900 - main background */
-  --bg-subtle: #1E293B;         /* Slate 800 - section backgrounds */
-  --bg-muted: #334155;          /* Slate 700 - card backgrounds */
+  --bg-primary: #0D1117;        /* Cool dark with blue undertone - main background */
+  --bg-subtle: #161B22;         /* Cool dark - section backgrounds */
+  --bg-muted: #21262D;          /* Cool muted dark - card backgrounds */
   
   /* Dark Text Colors */
-  --text-primary: #F8FAFC;      /* Slate 50 - main text */
-  --text-secondary: #CBD5E1;    /* Slate 300 - supporting text */
-  --text-tertiary: #94A3B8;     /* Slate 400 - subtle text */
+  --text-primary: #F0F6FC;      /* Cool white - main text */
+  --text-secondary: #C9D1D9;    /* Cool light gray - supporting text */
+  --text-tertiary: #8B949E;     /* Cool muted - subtle text */
   
   /* Dark Brand Colors */
-  --accent-primary: #60A5FA;    /* Blue 400 - links, CTAs */
-  --accent-hover: #3B82F6;      /* Blue 500 - hover states */
-  --success: #34D399;           /* Emerald 400 - achievements */
-  --border: #475569;            /* Slate 600 - borders */
+  --accent-primary: #58A6FF;    /* Cool blue - links, CTAs */
+  --accent-hover: #388BFD;      /* Brighter blue - hover states */
+  --success: #3FB950;           /* Cool emerald - achievements */
+  --border: #30363D;            /* Cool border - borders */
   
   /* Dark Interactive States */
-  --hover: #374151;             /* Gray 700 */
-  --active: #4B5563;            /* Gray 600 */
+  --hover: #262C36;             /* Cool hover */
+  --active: #2F3640;            /* Cool active */
   
   /* Dark Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -247,7 +247,7 @@ a {
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: var(--space-xl);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
 }
 
 /* Typography Utility Classes */
@@ -380,6 +380,8 @@ a {
 .nav-link.active {
   color: var(--accent-primary);
   background-color: rgba(59, 130, 246, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .nav-link::after {
@@ -421,7 +423,7 @@ a {
   height: 28px;
   background: var(--bg-muted);
   border-radius: 20px;
-  transition: var(--transition-slow);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   overflow: hidden;
   border: 1px solid var(--border);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -438,7 +440,7 @@ a {
   background: var(--bg-primary);
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all var(--transition-slow) ease-out;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border: 1px solid var(--border);
 }
 
@@ -743,12 +745,18 @@ a {
   background: var(--bg-subtle);
   border: 3px solid var(--border);
   transition: var(--transition-slow);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .profile-image:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
   border-color: var(--accent-primary);
 }
 
@@ -764,12 +772,14 @@ a {
 .name-first {
   display: block;
   color: var(--text-primary);
+  font-weight: 300;
 }
 
 .name-last {
   display: block;
-  color: var(--text-secondary);
-  font-weight: 400;
+  color: var(--text-primary);
+  font-weight: 500;
+  opacity: 0.8;
 }
 
 .hero-role {
@@ -900,8 +910,10 @@ a {
 }
 
 .philosophy {
-  border-left: 4px solid var(--success);
-  padding-left: var(--space-lg);
+  background: linear-gradient(90deg, var(--success) 0%, var(--success) 4px, transparent 4px);
+  background-color: rgba(4, 120, 87, 0.02);
+  padding: var(--space-lg);
+  border-radius: var(--border-radius-sm);
   margin-top: var(--space-xl);
 }
 
@@ -937,10 +949,9 @@ a {
     margin-bottom: var(--space-lg);
   }
   .philosophy {
-    border-left: none;
-    border-top: 4px solid var(--success);
-    padding-left: 0;
-    padding-top: var(--space-lg);
+    background: linear-gradient(180deg, var(--success) 0%, var(--success) 4px, transparent 4px);
+    background-color: rgba(4, 120, 87, 0.02);
+    padding: var(--space-lg);
     margin-top: var(--space-2xl);
   }
 }
@@ -970,8 +981,9 @@ a {
     gap: var(--space-lg);
   }
   .philosophy {
-    border-top-width: 3px;
-    padding-top: var(--space-sm);
+    background: linear-gradient(180deg, var(--success) 0%, var(--success) 3px, transparent 3px);
+    background-color: rgba(4, 120, 87, 0.02);
+    padding: var(--space-md);
   }
 }
 
@@ -990,11 +1002,16 @@ a {
   border: 1px solid var(--border);
   transition: var(--transition-base);
   height: 100%;
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .recognition-item:hover {
   transform: translateY(-1px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .recognition-item.featured {
@@ -1122,6 +1139,9 @@ a {
   height: fit-content;
   position: sticky;
   top: calc(80px + var(--space-lg)); /* Account for nav + margin */
+  box-shadow: 
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
 .advisory-header {
@@ -1276,6 +1296,8 @@ a {
   color: var(--accent-hover);
   background-color: rgba(59, 130, 246, 0.05);
   text-decoration: underline;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .network-button {
