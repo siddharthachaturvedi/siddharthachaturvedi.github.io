@@ -8,7 +8,7 @@
   
   [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-Live-2563EB?style=for-the-badge)](https://siddharthachaturvedi.github.io)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/siddharth)
-  [![Schedule](https://img.shields.io/badge/📅_Schedule-15min_Chat-059669?style=for-the-badge)](https://calendly.com/s-sidc/meet)
+  [![Schedule](https://img.shields.io/badge/📅_Schedule-Meet-059669?style=for-the-badge)](https://calendly.com/s-sidc/meet)
 </div>
 
 ---
