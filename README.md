@@ -1,7 +1,7 @@
 # Siddhartha Chaturvedi
 
 <div align="center">
-  <img src="https://media.licdn.com/dms/image/v2/D5603AQHgq8TpWBFHIQ/profile-displayphoto-crop_800_800/B56ZfeEX4VHQAI-/0/1751777378877?e=1761782400&v=beta&t=-NLXMFW6PFHSjoTRHnE1GMwbUdEJKl0h9H3w_2Kyusg" alt="Siddhartha Chaturvedi" width="180" style="border-radius: 25%;">
+  <img src="./sidc.jpeg" alt="Siddhartha Chaturvedi" width="180" style="border-radius: 25%;">
   
   <h3>Strategic AI Visionary • Founder</h3>
   <p><em>Building the post-agentic web for scientific discovery</em></p>
