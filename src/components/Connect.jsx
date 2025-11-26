@@ -29,7 +29,11 @@ export default function Connect() {
 
           <div className="availability-section">
             <h3 className="text-title availability-header">Currently Available</h3>
-            <p className="text-body-lg availability-items">Strategic Advisory • Keynote Speaking • Board Positions</p>
+            <div className="text-body-lg availability-items">
+              <span>Strategic Advisory</span>
+              <span>Keynote Speaking</span>
+              <span>Board Positions</span>
+            </div>
           </div>
 
           <div className="location">

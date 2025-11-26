@@ -1370,6 +1370,16 @@ a {
   color: var(--text-secondary);
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.availability-items span:not(:last-child)::after {
+  content: ' • ';
+  margin: 0 var(--space-sm);
 }
 
 .location-text {
@@ -1425,8 +1435,10 @@ a {
   }
   .availability-items {
     font-size: var(--text-sm);
-    white-space: normal;
-    word-spacing: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: center;
   }
   .location-text {
     font-size: var(--text-sm);
@@ -1440,8 +1452,10 @@ a {
   }
   .availability-items {
     font-size: var(--text-xs);
-    white-space: normal;
-    word-spacing: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: center;
   }
 }
 
