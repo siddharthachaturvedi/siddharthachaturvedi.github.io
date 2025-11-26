@@ -1,11 +1,10 @@
-// mShots Preview Manager for Ventures Section
-class MshotsPreviewManager {
+// Screenshot Preview Manager for Ventures Section
+class ScreenshotPreviewManager {
   constructor() {
     this.ventureCards = document.querySelectorAll('.venture-card');
-    this.mshotsBaseUrl = 'https://s.wordpress.com/mshots/v1/';
-    this.corsProxy = 'https://corsproxy.io/?';
+    this.screenshotService = 'https://image.thum.io/get/';
     this.retryLimit = 2;
-    this.retryDelay = 3000;
+    this.retryDelay = 2000;
     this.init();
   }
 
@@ -15,8 +14,8 @@ class MshotsPreviewManager {
 
   setupIntersectionObserver() {
     const options = {
-      threshold: 0.1,
-      rootMargin: '100px'
+      threshold: 0.05,
+      rootMargin: '150px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -43,10 +42,9 @@ class MshotsPreviewManager {
     const width = isFeatured ? 1440 : 1200;
     const height = isFeatured ? 900 : 800;
 
-    const mshotsUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}`;
-    const proxiedUrl = `${this.corsProxy}${encodeURIComponent(mshotsUrl)}`;
+    const screenshotUrl = `${this.screenshotService}width=${width}/height=${height}/${encodeURIComponent(url)}`;
 
-    this.attemptLoadScreenshot(img, proxiedUrl, 0);
+    this.attemptLoadScreenshot(img, screenshotUrl, 0);
   }
 
   attemptLoadScreenshot(img, screenshotUrl, retryCount) {
@@ -134,10 +132,10 @@ class RefinedPortfolio {
   
   setupScrollSpy() {
     const options = {
-      threshold: 0.5,
-      rootMargin: '-20% 0px -20% 0px'
+      threshold: 0.25,
+      rootMargin: '-5% 0px -60% 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -145,7 +143,7 @@ class RefinedPortfolio {
         }
       });
     }, options);
-    
+
     this.sections.forEach(section => observer.observe(section));
   }
   
@@ -527,8 +525,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize main portfolio functionality
   window.portfolioInstance = new RefinedPortfolio();
 
-  // Initialize mShots preview manager
-  window.mshotsManager = new MshotsPreviewManager();
+  // Initialize screenshot preview manager
+  window.screenshotManager = new ScreenshotPreviewManager();
 
   // Setup additional enhancements
   setupLinkInteractions();
@@ -572,6 +570,6 @@ window.addEventListener('error', (e) => {
   // In production, you might want to send this to an error tracking service
 });
 
-// Expose portfolio and mShots classes for debugging
+// Expose portfolio and screenshot classes for debugging
 window.RefinedPortfolio = RefinedPortfolio;
-window.MshotsPreviewManager = MshotsPreviewManager;
+window.ScreenshotPreviewManager = ScreenshotPreviewManager;
