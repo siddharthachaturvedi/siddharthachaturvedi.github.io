@@ -3,8 +3,9 @@ class MshotsPreviewManager {
   constructor() {
     this.ventureCards = document.querySelectorAll('.venture-card');
     this.mshotsBaseUrl = 'https://s.wordpress.com/mshots/v1/';
-    this.retryLimit = 3;
-    this.retryDelay = 2000;
+    this.corsProxy = 'https://corsproxy.io/?';
+    this.retryLimit = 2;
+    this.retryDelay = 3000;
     this.init();
   }
 
@@ -15,7 +16,7 @@ class MshotsPreviewManager {
   setupIntersectionObserver() {
     const options = {
       threshold: 0.1,
-      rootMargin: '50px'
+      rootMargin: '100px'
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -39,22 +40,25 @@ class MshotsPreviewManager {
     if (!url) return;
 
     const isFeatured = card.classList.contains('featured-venture');
-    const width = isFeatured ? 1200 : 800;
-    const height = isFeatured ? 600 : 480;
+    const width = isFeatured ? 1440 : 1200;
+    const height = isFeatured ? 900 : 800;
 
-    const screenshotUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}&timeout=15`;
+    const mshotsUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}`;
+    const proxiedUrl = `${this.corsProxy}${encodeURIComponent(mshotsUrl)}`;
 
-    this.attemptLoadScreenshot(img, screenshotUrl, 0);
+    this.attemptLoadScreenshot(img, proxiedUrl, 0);
   }
 
   attemptLoadScreenshot(img, screenshotUrl, retryCount) {
     const loadingContainer = img.parentElement.querySelector('.venture-preview-loading');
 
     img.onload = () => {
-      img.classList.add('loaded');
-      if (loadingContainer) {
-        loadingContainer.style.display = 'none';
-      }
+      setTimeout(() => {
+        img.classList.add('loaded');
+        if (loadingContainer) {
+          loadingContainer.style.display = 'none';
+        }
+      }, 200);
     };
 
     img.onerror = () => {
@@ -65,11 +69,12 @@ class MshotsPreviewManager {
       } else {
         img.classList.add('error');
         if (loadingContainer) {
-          loadingContainer.innerHTML = '<div style="color: var(--text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-md); width: 100%;">Screenshot unavailable</div>';
+          loadingContainer.innerHTML = '<div style="color: var(--text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-md); width: 100%;">Preview unavailable</div>';
         }
       }
     };
 
+    img.crossOrigin = 'anonymous';
     img.src = screenshotUrl;
   }
 }
