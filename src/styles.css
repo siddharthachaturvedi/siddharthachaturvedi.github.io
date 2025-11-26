@@ -749,8 +749,8 @@ a {
 }
 
 .profile-image {
-  width: clamp(120px, 20vw, 200px);
-  height: clamp(120px, 20vw, 200px);
+  width: clamp(100px, 16vw, 160px);
+  height: clamp(100px, 16vw, 160px);
   object-fit: cover;
   object-position: center;
   border-radius: 0%;
@@ -801,9 +801,9 @@ a {
 }
 
 .hero-logo {
-  height: clamp(24px, 3vw, 36px);
+  height: clamp(32px, 4vw, 48px);
   width: auto;
-  max-width: clamp(80px, 15vw, 120px);
+  max-width: clamp(100px, 18vw, 150px);
   object-fit: contain;
   opacity: 0.85;
   transition: var(--transition-fast);
