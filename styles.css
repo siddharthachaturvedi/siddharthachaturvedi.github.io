@@ -94,6 +94,28 @@
   --nav-border: var(--border);
 }
 
+/* Light theme overrides */
+body.light-theme {
+  --bg-primary: #f7fafc;
+  --bg-subtle: #ffffff;
+  --bg-muted: #edf2f7;
+  --text-primary: #0b1220;
+  --text-secondary: #4b5563;
+  --text-tertiary: #6b7280;
+  --accent-primary: #ff4d00;
+  --accent-hover: #ff6b26;
+  --success: #0f9d58;
+  --border: #e5e7eb;
+  --hover: #e5e7eb;
+  --active: #d1d5db;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-border: var(--border);
+}
+
+body.dark-theme {
+  --nav-bg: rgba(13, 17, 23, 0.95);
+}
+
 /* Reset and Base Styles */
 * {
   box-sizing: border-box;
