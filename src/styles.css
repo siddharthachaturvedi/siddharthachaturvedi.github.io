@@ -1621,7 +1621,7 @@ button:focus {
   justify-content: center;
   background: var(--bg-primary);
   border: 1px solid var(--border);
-  min-height: 300px;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
 }
 
@@ -1658,7 +1658,7 @@ button:focus {
 .venture-preview {
   position: relative;
   width: 100%;
-  height: 200px;
+  aspect-ratio: 3 / 2;
   background: var(--bg-muted);
   border: 1px solid var(--border);
   margin-bottom: var(--space-lg);
@@ -1669,7 +1669,7 @@ button:focus {
 }
 
 .venture-preview.compact {
-  height: 160px;
+  aspect-ratio: 3 / 2;
 }
 
 .venture-preview-loading {
@@ -1707,8 +1707,8 @@ button:focus {
 
 .venture-screenshot {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   opacity: 0;
   transition: opacity var(--transition-base);
 }
@@ -1803,7 +1803,7 @@ button:focus {
   }
 
   .featured-venture .venture-preview {
-    min-height: 200px;
+    aspect-ratio: 3 / 2;
   }
 
   .venture-card {
@@ -1811,12 +1811,12 @@ button:focus {
   }
 
   .venture-preview {
-    height: 150px;
+    aspect-ratio: 3 / 2;
     margin-bottom: var(--space-md);
   }
 
   .venture-preview.compact {
-    height: 120px;
+    aspect-ratio: 3 / 2;
   }
 
   .venture-name {
@@ -1840,7 +1840,7 @@ button:focus {
   }
 
   .featured-venture .venture-preview {
-    min-height: 180px;
+    aspect-ratio: 3 / 2;
   }
 
   .venture-card {
@@ -1848,12 +1848,12 @@ button:focus {
   }
 
   .venture-preview {
-    height: 120px;
+    aspect-ratio: 3 / 2;
     margin-bottom: var(--space-md);
   }
 
   .venture-preview.compact {
-    height: 100px;
+    aspect-ratio: 3 / 2;
   }
 
   .venture-role {
