@@ -11,9 +11,9 @@
   --text-tertiary: #6B7280;   /* Gray - subtle text */
 
   /* Brand Colors - Industrial */
-  --accent-primary: #FF4D00;  /* International Orange - CTAs, alerts */
-  --accent-hover: #FF6B26;    /* Orange hover - slightly brighter */
-  --success: #FF4D00;         /* Orange for all critical points */
+  --accent-primary: #00AD83;  /* INSEAD Green - CTAs, alerts */
+  --accent-hover: #00C794;    /* INSEAD Green hover - slightly brighter */
+  --success: #00AD83;         /* INSEAD Green for all critical points */
   --border: #000000;          /* Pure black - borders */
 
   /* Interactive States */
@@ -104,7 +104,7 @@ body.light-theme {
   --text-tertiary: #6b7280;
   --accent-primary: #ff4d00;
   --accent-hover: #ff6b26;
-  --success: #0f9d58;
+  --success: #00AD83;
   --border: #e5e7eb;
   --hover: #e5e7eb;
   --active: #d1d5db;
