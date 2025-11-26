@@ -19,7 +19,7 @@ export default function Hero() {
             </a>
           </div>
           <p className="text-body-lg hero-description">
-            Scaling multi-agentic intelligence to to responsible impact.
+            Scaling multi-agentic AI to responsible impact.
           </p>
         </div>
       </div>
