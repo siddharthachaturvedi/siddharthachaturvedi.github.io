@@ -27,40 +27,26 @@ class RefinedPortfolio {
   
   setupThemeToggle() {
     if (!this.themeToggle) return;
-    
-    // Load saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Set initial theme
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      this.enableDarkTheme();
-    } else {
-      this.enableLightTheme();
-    }
-    
-    // Listen for theme toggle changes
+
+    // Always use dark theme
+    this.enableDarkTheme();
+
+    // Listen for theme toggle changes - always keep dark theme
     this.themeToggle.addEventListener('change', () => {
-      if (this.themeToggle.checked) {
-        this.enableDarkTheme();
-      } else {
-        this.enableLightTheme();
-      }
+      this.enableDarkTheme();
     });
   }
-  
+
   enableDarkTheme() {
     this.isDarkTheme = true;
     document.body.classList.add('dark-theme');
     this.themeToggle.checked = true;
     localStorage.setItem('theme', 'dark');
   }
-  
+
   enableLightTheme() {
-    this.isDarkTheme = false;
-    document.body.classList.remove('dark-theme');
-    this.themeToggle.checked = false;
-    localStorage.setItem('theme', 'light');
+    // Disabled - only dark theme is used
+    this.enableDarkTheme();
   }
   
   setupScrollSpy() {
