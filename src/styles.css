@@ -768,7 +768,7 @@ a {
 
 .hero-name {
   font-family: var(--font-primary);
-  font-size: var(--text-6xl);
+  font-size: clamp(1.5rem, 5vw, 2.5rem);
   font-weight: 900;
   line-height: var(--leading-tight);
   margin-bottom: var(--space-lg);
@@ -801,9 +801,9 @@ a {
 }
 
 .hero-logo {
-  height: clamp(32px, 4vw, 56px);
+  height: clamp(48px, 6vw, 80px);
   width: auto;
-  max-width: clamp(100px, 18vw, 180px);
+  max-width: clamp(140px, 24vw, 240px);
   object-fit: contain;
   opacity: 0.85;
   transition: var(--transition-fast);
@@ -852,8 +852,8 @@ a {
     padding: var(--space-sm) 0;
   }
   .hero-logo {
-    height: clamp(20px, 2.5vw, 30px);
-    max-width: clamp(60px, 12vw, 100px);
+    height: clamp(30px, 3.5vw, 45px);
+    max-width: clamp(90px, 16vw, 140px);
   }
 }
 
@@ -880,8 +880,8 @@ a {
     margin-bottom: var(--space-md);
   }
   .hero-logo {
-    height: clamp(18px, 2vw, 24px);
-    max-width: clamp(50px, 10vw, 80px);
+    height: clamp(28px, 3vw, 36px);
+    max-width: clamp(75px, 14vw, 110px);
   }
 }
 
