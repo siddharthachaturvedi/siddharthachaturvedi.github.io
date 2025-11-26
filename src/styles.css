@@ -801,9 +801,9 @@ a {
 }
 
 .hero-logo {
-  height: clamp(32px, 4vw, 48px);
+  height: clamp(32px, 4vw, 56px);
   width: auto;
-  max-width: clamp(100px, 18vw, 150px);
+  max-width: clamp(100px, 18vw, 180px);
   object-fit: contain;
   opacity: 0.85;
   transition: var(--transition-fast);
@@ -818,8 +818,9 @@ a {
   font-size: var(--text-xl);
   color: var(--text-secondary);
   line-height: 1.6;
-  max-width: var(--narrow-width);
+  max-width: var(--content-width);
   margin: 0 auto;
+  white-space: normal;
 }
 
 /* Enhanced mobile hero styling */

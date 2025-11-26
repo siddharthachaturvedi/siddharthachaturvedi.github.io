@@ -16,7 +16,7 @@ export default function Hero() {
             <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/BITS_Pilani-Logo.svg" alt="BITS Pilani" className="hero-logo" />
           </div>
           <p className="text-body-lg hero-description">
-            Building the post-agentic web for impact and outcomes.
+            Scaling intelligence to unlock scientific breakthroughs.
           </p>
         </div>
       </div>
