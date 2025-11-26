@@ -1,3 +1,79 @@
+// mShots Preview Manager for Ventures Section
+class MshotsPreviewManager {
+  constructor() {
+    this.ventureCards = document.querySelectorAll('.venture-card');
+    this.mshotsBaseUrl = 'https://s0.wp.com/mshots/v1/';
+    this.retryLimit = 3;
+    this.retryDelay = 2000;
+    this.init();
+  }
+
+  init() {
+    this.setupIntersectionObserver();
+  }
+
+  setupIntersectionObserver() {
+    const options = {
+      threshold: 0.1,
+      rootMargin: '50px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          const img = card.querySelector('.venture-screenshot');
+          if (img && !img.src) {
+            this.loadScreenshot(card, img);
+          }
+          observer.unobserve(card);
+        }
+      });
+    }, options);
+
+    this.ventureCards.forEach(card => observer.observe(card));
+  }
+
+  loadScreenshot(card, img) {
+    const url = card.getAttribute('data-url');
+    if (!url) return;
+
+    const isFeatured = card.classList.contains('featured-venture');
+    const width = isFeatured ? 1200 : 800;
+    const height = isFeatured ? 600 : 480;
+
+    const screenshotUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}`;
+
+    this.attemptLoadScreenshot(img, screenshotUrl, 0);
+  }
+
+  attemptLoadScreenshot(img, screenshotUrl, retryCount) {
+    const loadingContainer = img.parentElement.querySelector('.venture-preview-loading');
+
+    img.onload = () => {
+      img.classList.add('loaded');
+      if (loadingContainer) {
+        loadingContainer.style.display = 'none';
+      }
+    };
+
+    img.onerror = () => {
+      if (retryCount < this.retryLimit) {
+        setTimeout(() => {
+          this.attemptLoadScreenshot(img, screenshotUrl, retryCount + 1);
+        }, this.retryDelay);
+      } else {
+        img.classList.add('error');
+        if (loadingContainer) {
+          loadingContainer.innerHTML = '<div style="color: var(--text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-md); width: 100%;">Screenshot unavailable</div>';
+        }
+      }
+    };
+
+    img.src = screenshotUrl;
+  }
+}
+
 // Minimal Portfolio JavaScript - Refined & Elegant
 class RefinedPortfolio {
   constructor() {
@@ -11,7 +87,8 @@ class RefinedPortfolio {
     this.activeSection = '';
     this.isMobileMenuOpen = false;
     this.isDarkTheme = false;
-    
+    this.mshotsManager = null;
+
     this.init();
   }
   
@@ -434,21 +511,24 @@ const setupAccessibility = () => {
 document.addEventListener('DOMContentLoaded', () => {
   // Check for reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
+
   if (prefersReducedMotion) {
     // Disable smooth scrolling and animations
     document.documentElement.style.scrollBehavior = 'auto';
     document.body.classList.add('reduced-motion');
   }
-  
+
   // Initialize main portfolio functionality
   window.portfolioInstance = new RefinedPortfolio();
-  
+
+  // Initialize mShots preview manager
+  window.mshotsManager = new MshotsPreviewManager();
+
   // Setup additional enhancements
   setupLinkInteractions();
   setupPerformanceOptimizations();
   setupAccessibility();
-  
+
   // Add loaded class for any CSS transitions
   requestAnimationFrame(() => {
     document.body.classList.add('loaded');
@@ -486,5 +566,6 @@ window.addEventListener('error', (e) => {
   // In production, you might want to send this to an error tracking service
 });
 
-// Expose portfolio instance for debugging
+// Expose portfolio and mShots classes for debugging
 window.RefinedPortfolio = RefinedPortfolio;
+window.MshotsPreviewManager = MshotsPreviewManager;
