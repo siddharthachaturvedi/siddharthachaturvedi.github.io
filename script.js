@@ -2,7 +2,7 @@
 class MshotsPreviewManager {
   constructor() {
     this.ventureCards = document.querySelectorAll('.venture-card');
-    this.mshotsBaseUrl = 'https://s0.wp.com/mshots/v1/';
+    this.mshotsBaseUrl = 'https://s.wordpress.com/mshots/v1/';
     this.retryLimit = 3;
     this.retryDelay = 2000;
     this.init();
@@ -42,7 +42,7 @@ class MshotsPreviewManager {
     const width = isFeatured ? 1200 : 800;
     const height = isFeatured ? 600 : 480;
 
-    const screenshotUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}`;
+    const screenshotUrl = `${this.mshotsBaseUrl}${encodeURIComponent(url)}?w=${width}&h=${height}&timeout=15`;
 
     this.attemptLoadScreenshot(img, screenshotUrl, 0);
   }
@@ -105,25 +105,26 @@ class RefinedPortfolio {
   setupThemeToggle() {
     if (!this.themeToggle) return;
 
-    // Always use dark theme
-    this.enableDarkTheme();
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
 
-    // Listen for theme toggle changes - always keep dark theme
+    this.applyTheme(initialTheme);
+
+    this.themeToggle.checked = initialTheme === 'dark';
+
     this.themeToggle.addEventListener('change', () => {
-      this.enableDarkTheme();
+      const newTheme = this.themeToggle.checked ? 'dark' : 'light';
+      this.applyTheme(newTheme);
     });
   }
 
-  enableDarkTheme() {
-    this.isDarkTheme = true;
-    document.body.classList.add('dark-theme');
-    this.themeToggle.checked = true;
-    localStorage.setItem('theme', 'dark');
-  }
-
-  enableLightTheme() {
-    // Disabled - only dark theme is used
-    this.enableDarkTheme();
+  applyTheme(theme) {
+    this.isDarkTheme = theme === 'dark';
+    document.body.classList.toggle('dark-theme', this.isDarkTheme);
+    document.body.classList.toggle('light-theme', !this.isDarkTheme);
+    this.themeToggle.checked = this.isDarkTheme;
+    localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
   }
   
   setupScrollSpy() {
