@@ -11,12 +11,15 @@ export default function Hero() {
             <span className="name-last">Chaturvedi</span>
           </h1>
           <div className="hero-logos">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="hero-logo" />
-            <img src="https://www.insead.edu/profiles/custom/insead/themes/insead_core/images/logo.png" alt="INSEAD" className="hero-logo" />
-            <img src="https://upload.wikimedia.org/wikipedia/en/d/d3/BITS_Pilani-Logo.svg" alt="BITS Pilani" className="hero-logo" />
+            <a href="https://devblogs.microsoft.com/azuregov/author/sidc/" target="_blank" rel="noopener noreferrer">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" className="hero-logo" />
+            </a>
+            <a href="https://www.insead.edu/bio/siddhartha-chaturvedi-mba15d" target="_blank" rel="noopener noreferrer">
+              <img src="https://www.insead.edu/profiles/custom/insead/themes/insead_core/images/logo.png" alt="INSEAD" className="hero-logo" />
+            </a>
           </div>
           <p className="text-body-lg hero-description">
-            Scaling intelligence to unlock scientific breakthroughs.
+            Scaling multi-agentic intelligence to to responsible impact.
           </p>
         </div>
       </div>
