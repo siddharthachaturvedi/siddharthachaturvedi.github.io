@@ -1,7 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navigation({ activeSection, isDarkTheme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const sections = [
     { id: 'hero', label: 'Home' },
@@ -13,26 +24,20 @@ export default function Navigation({ activeSection, isDarkTheme, toggleTheme }) 
   ];
 
   const scrollToSection = (sectionId) => {
-    const targetSection = document.getElementById(sectionId);
-    if (!targetSection) return;
-
-    const sectionHeight = targetSection.offsetHeight;
-    const viewportHeight = window.innerHeight;
-    const sectionTop = targetSection.offsetTop;
-
-    let scrollPosition;
-    if (sectionHeight >= viewportHeight) {
-      scrollPosition = sectionTop;
-    } else {
-      scrollPosition = sectionTop - (viewportHeight - sectionHeight) / 2;
-    }
-
-    window.scrollTo({
-      top: Math.max(0, scrollPosition),
-      behavior: 'smooth'
-    });
-
     setIsMobileMenuOpen(false);
+
+    setTimeout(() => {
+      const targetSection = document.getElementById(sectionId);
+      if (!targetSection) return;
+
+      const navHeight = 80;
+      const sectionTop = targetSection.offsetTop;
+
+      window.scrollTo({
+        top: sectionTop - navHeight,
+        behavior: 'smooth'
+      });
+    }, 50);
   };
 
   return (

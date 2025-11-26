@@ -341,24 +341,26 @@ a {
   margin: 0 auto;
   padding: var(--space-md) var(--space-lg);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: relative;
+  gap: var(--space-xl);
 }
 
 .nav-actions {
   display: flex;
   gap: var(--space-md);
   align-items: center;
-  position: relative;
+  position: absolute;
+  right: var(--space-lg);
 }
 
 .nav-links {
   display: flex;
-  gap: var(--space-xl);
-  flex: 1;
-  flex-wrap: wrap;
+  gap: var(--space-lg);
+  flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
 }
 
 .nav-link {
@@ -371,14 +373,20 @@ a {
   transition: var(--transition-fast);
   position: relative;
   padding: var(--space-xs) var(--space-sm);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  display: inline-block;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+  color: var(--accent-primary);
+  border-bottom: 2px solid var(--accent-primary);
+}
+
 .nav-link.active {
-  color: #000000;
+  color: var(--text-primary);
   background-color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
+  border: 2px solid var(--accent-primary);
 }
 
 .nav-link::after {
@@ -601,23 +609,40 @@ a {
 .nav-mobile-link:nth-child(4) { transition-delay: 0.4s; }
 .nav-mobile-link:nth-child(5) { transition-delay: 0.5s; }
 
+/* Tablet/small desktop navigation adjustments */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: var(--space-md);
+  }
+
+  .nav-link {
+    padding: var(--space-2xs) var(--space-xs);
+    font-size: calc(var(--text-sm) * 0.9);
+  }
+
+  .nav-actions {
+    right: var(--space-md);
+  }
+}
+
 /* Enhanced mobile navigation */
 @media (max-width: 768px) {
-  .theme-toggle-wrapper {
-    order: -1; /* Show theme toggle before hamburger menu */
-  }
-  
   .nav-content {
     padding: var(--space-sm) var(--space-md);
-    justify-content: center;
+    justify-content: flex-end;
   }
-  
+
   .nav-links {
     display: none;
   }
-  
+
   .nav-toggle {
     display: flex;
+  }
+
+  .nav-actions {
+    position: static;
+    gap: var(--space-sm);
   }
 }
 
