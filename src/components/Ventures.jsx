@@ -8,8 +8,13 @@ function VentureCard({ url, role, name, description, link, isFeatured = false, i
   useEffect(() => {
     const loadScreenshot = () => {
       const width = isFeatured ? 1440 : 1200;
-      const height = isFeatured ? 900 : 800;
-      const screenshotUrl = `https://image.thum.io/get/width=${width}/height=${height}/${encodeURIComponent(url)}`;
+      const height = isFeatured ? 960 : 800;
+
+      // mShots API - WordPress screenshot service
+      const mshots = `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${width}&h=${height}`;
+
+      // CORS Proxy to handle cross-origin issues
+      const proxy = `https://corsproxy.io/?${encodeURIComponent(mshots)}`;
 
       const img = imgRef.current;
       if (!img) return;
@@ -40,8 +45,9 @@ function VentureCard({ url, role, name, description, link, isFeatured = false, i
           }
         };
 
+        // Set crossOrigin for CORS support
         img.crossOrigin = 'anonymous';
-        img.src = screenshotUrl;
+        img.src = proxy;
       };
 
       const observer = new IntersectionObserver(
