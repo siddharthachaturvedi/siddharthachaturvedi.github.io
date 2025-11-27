@@ -11,8 +11,8 @@ export default function About() {
           <div className="about-right">
             <p className="text-body-lg about-description">
               <span className="content-mobile">Led AI innovation touching millions through federal deployments and healthcare breakthroughs.</span>
-              <span className="content-tablet">Former Director at Microsoft Strategic Missions & Technologies, leading responsible AI innovation across government and healthcare.</span>
-              <span className="content-desktop">At Microsoft, I led product and innovation strategy for AI systems deployed across federal government and healthcare, directly impacting millions of lives through breakthrough technology.</span>
+              <span className="content-tablet">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
+              <span className="content-desktop">Led AI innovation touching millions of lives through federal deployments, healthcare breakthroughs, and responsible technology development.</span>
             </p>
             <div className="current-focus">
               <h3 className="text-title focus-header">Current Focus</h3>

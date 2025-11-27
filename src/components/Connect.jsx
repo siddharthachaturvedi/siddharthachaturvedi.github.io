@@ -1,8 +1,8 @@
 export default function Connect() {
   const networks = [
-    { label: 'LinkedIn', link: 'https://linkedin.com/in/siddharth', text: '/in/siddharth', isButton: false, emoji: '💼' },
-    { label: 'Schedule', link: 'https://calendly.com/s-sidc/meet', text: 'Meet', isButton: true, emoji: '📅' },
-    { label: 'Resume', link: '/resume.pdf', text: 'Download', isButton: false, emoji: '📄' }
+    { label: 'LinkedIn', link: 'https://linkedin.com/in/siddharth', text: '/in/siddharth', isButton: false },
+    { label: 'Schedule', link: 'https://calendly.com/s-sidc/meet', text: 'Meet', isButton: true },
+    { label: 'Resume', link: '/resume.pdf', text: 'Download PDF', isButton: false }
   ];
 
   return (
@@ -14,7 +14,6 @@ export default function Connect() {
           <div className="networks">
             {networks.map((item, index) => (
               <div key={index} className="network-item">
-                <span className="network-emoji">{item.emoji}</span>
                 <span className="text-overline network-label">{item.label}</span>
                 <a
                   href={item.link}
