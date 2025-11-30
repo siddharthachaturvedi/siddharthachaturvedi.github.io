@@ -16,6 +16,18 @@
   --success: #00AD83;         /* INSEAD Green for all critical points */
   --border: #000000;          /* Pure black - borders */
 
+  /* Personal Color Palette - Extending Brand Identity */
+  --accent-secondary: #FF6B35;  /* Warm innovation orange - ventures, highlights */
+  --accent-tertiary: #004E89;   /* Deep research blue - scientific depth */
+  --accent-quaternary: #9D4EDD; /* Strategic purple - advisory, thought leadership */
+  --accent-quinary: #00D9FF;    /* Cyan energy - AI/future tech */
+  --accent-warm: #FFB703;       /* Golden amber - achievements, recognition */
+
+  /* Extended Neutral Palette */
+  --neutral-dark: #1A1F2E;      /* Slightly warmer dark for depth */
+  --neutral-light: #E8E6E1;     /* Refined off-white */
+  --neutral-gray: #4A5568;      /* Professional mid-gray */
+
   /* Interactive States */
   --hover: #1C2128;
   --active: #262C36;
@@ -96,20 +108,25 @@
 
 /* Light theme overrides */
 body.light-theme {
-  --bg-primary: #f7fafc;
+  --bg-primary: #fafbf9;
   --bg-subtle: #ffffff;
-  --bg-muted: #edf2f7;
-  --text-primary: #0b1220;
-  --text-secondary: #4b5563;
+  --bg-muted: #f0f3f1;
+  --text-primary: #0a1017;
+  --text-secondary: #4a5568;
   --text-tertiary: #6b7280;
   --accent-primary: #00AD83;
   --accent-hover: #00C794;
   --success: #00AD83;
-  --border: #e5e7eb;
+  --border: #e2e5e1;
   --hover: #e5e7eb;
   --active: #d1d5db;
-  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-bg: rgba(255, 255, 255, 0.92);
   --nav-border: var(--border);
+  --accent-secondary: #E74C3C;
+  --accent-tertiary: #1F5E8C;
+  --accent-quaternary: #8E44AD;
+  --accent-quinary: #00A8CC;
+  --accent-warm: #F39C12;
 }
 
 body.dark-theme {
@@ -128,6 +145,8 @@ html {
   font-family: var(--font-primary);
   scroll-snap-type: y mandatory;
   height: 100%;
+  --mouse-x: 0;
+  --mouse-y: 0;
 }
 
 body {
@@ -813,6 +832,13 @@ a {
   opacity: 1;
 }
 
+.hero-tagline-wrapper {
+  position: relative;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  height: auto;
+}
+
 .hero-description {
   font-family: var(--font-monospace);
   font-size: var(--text-xl);
@@ -821,6 +847,23 @@ a {
   max-width: var(--content-width);
   margin: 0 auto;
   white-space: normal;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero-description.tagline {
+  position: relative;
+  transform: none;
+  left: auto;
+  margin: 0 auto;
+}
+
+.hero-description.tagline.active {
+  opacity: 1;
+  position: static;
 }
 
 /* Enhanced mobile hero styling */
@@ -954,11 +997,36 @@ a {
 }
 
 .philosophy {
-  background: transparent;
-  border-left: 2px solid var(--accent-primary);
+  background: linear-gradient(135deg, rgba(0, 173, 131, 0.05) 0%, rgba(255, 107, 53, 0.02) 100%);
+  border-left: 3px solid var(--accent-primary);
+  border-top: 1px solid rgba(0, 173, 131, 0.2);
+  border-bottom: 1px solid rgba(0, 173, 131, 0.2);
   padding: var(--space-lg);
   border-radius: 0px;
   margin-top: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.philosophy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  margin-left: -3px;
+}
+
+.philosophy::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(255, 107, 53, 0.5), transparent);
 }
 
 .quote-text {
@@ -1049,11 +1117,34 @@ a {
   transition: var(--transition-fast);
   height: 100%;
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.recognition-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 107, 53, 0.1) 50%,
+    transparent 100%
+  );
+  transition: left var(--transition-base);
+}
+
+.recognition-item:hover::before {
+  left: 100%;
 }
 
 .recognition-item:hover {
   transform: none;
-  box-shadow: 4px 4px 0px 0px rgba(255, 77, 0, 0.6);
+  box-shadow: 4px 4px 0px 0px rgba(255, 107, 53, 0.8),
+              inset 0 0 30px rgba(0, 173, 131, 0.1);
   border-color: var(--accent-primary);
 }
 
@@ -1339,22 +1430,42 @@ a {
   color: var(--accent-primary);
   text-decoration: none;
   font-weight: 600;
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
   padding: var(--space-xs) var(--space-sm);
-  border: 1px solid transparent;
+  border: 2px solid var(--accent-primary);
   border-radius: 0px;
   white-space: nowrap;
   font-size: var(--text-sm);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.network-link::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: var(--accent-secondary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-fast), height var(--transition-fast);
+}
+
+.network-link:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .network-link:hover {
   color: #000000;
-  background-color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
+  background-color: transparent;
+  border-color: var(--accent-secondary);
   text-decoration: none;
   transform: none;
-  box-shadow: none;
+  box-shadow: 2px 2px 8px rgba(255, 107, 53, 0.3);
 }
 
 .network-button {
@@ -1366,10 +1477,28 @@ a {
   border-radius: 0px;
   padding: var(--space-xs) var(--space-sm);
   font-weight: 600;
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
   white-space: nowrap;
   font-size: var(--text-sm);
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.network-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform var(--transition-fast);
+}
+
+.network-button:hover::after {
+  transform: translateX(100%);
 }
 
 .network-button:hover {
@@ -1378,6 +1507,7 @@ a {
   border: 2px solid var(--accent-primary);
   text-decoration: none;
   transform: none;
+  box-shadow: 4px 4px 0px rgba(0, 173, 131, 0.3);
 }
 
 .availability-section {
@@ -1644,6 +1774,254 @@ button:focus {
   }
 }
 
+/* Animated Background Texture & Elements */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 173, 131, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 173, 131, 0.6);
+  }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 173, 131, 0);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 173, 131, 0.5);
+  }
+}
+
+@keyframes reveal-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes reveal-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes reveal-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes reveal-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scroll Reveal Classes */
+.reveal-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-element.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-element.scale {
+  transform: scale(0.95);
+}
+
+.reveal-element.scale.reveal-visible {
+  transform: scale(1);
+}
+
+.recognition-item {
+  animation: reveal-fade-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.recognition-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.recognition-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.recognition-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.venture-card {
+  animation: reveal-fade-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.venture-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.venture-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.venture-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.venture-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+/* Subtle Grid Background Texture */
+.hero::before,
+.ventures-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    linear-gradient(0deg, transparent 24%, rgba(255, 107, 53, 0.05) 25%, rgba(255, 107, 53, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 173, 131, 0.03) 75%, rgba(0, 173, 131, 0.03) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 217, 255, 0.03) 25%, rgba(0, 217, 255, 0.03) 26%, transparent 27%, transparent 74%, rgba(157, 78, 221, 0.02) 75%, rgba(157, 78, 221, 0.02) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero,
+.ventures-section {
+  position: relative;
+}
+
+.hero-content,
+.ventures-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating Accent Elements */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0, 173, 131, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-slow 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Accent secondary elements */
+.about-grid::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -200px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-slower 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.recognition-grid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -150px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(0, 78, 137, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float-slow 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Glow Effect on Accent Elements */
+.profile-image {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Text Glow for Headlines */
+.text-display,
+.text-headline {
+  position: relative;
+}
+
+.hero-name {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* Enhanced Shimmer Effect for Special Elements */
+.recognition-item.featured {
+  background: linear-gradient(
+    135deg,
+    var(--bg-muted) 0%,
+    var(--accent-warm) 50%,
+    var(--bg-muted) 100%
+  );
+  background-size: 200% 200%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
 /* Ventures Section */
 .ventures-section {
   background: var(--bg-primary);
@@ -1664,11 +2042,32 @@ button:focus {
   border-radius: 0px;
   transition: var(--transition-base);
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-venture::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.featured-venture:hover::before {
+  transform: scaleX(1);
 }
 
 .featured-venture:hover {
-  box-shadow: 4px 4px 0px 0px rgba(255, 77, 0, 0.6);
-  border-color: var(--accent-primary);
+  box-shadow: 4px 4px 0px 0px rgba(255, 107, 53, 0.8),
+              0 0 40px rgba(0, 173, 131, 0.15);
+  border-color: var(--accent-secondary);
+  background: linear-gradient(135deg, var(--bg-muted) 0%, rgba(255, 107, 53, 0.04) 100%);
 }
 
 .featured-venture .venture-preview {
@@ -1704,11 +2103,37 @@ button:focus {
   transition: var(--transition-base);
   height: 100%;
   box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.venture-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-secondary) 50%,
+    transparent 100%
+  );
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform var(--transition-base);
+}
+
+.venture-card:hover::before {
+  transform: scaleX(1);
 }
 
 .venture-card:hover {
-  box-shadow: 4px 4px 0px 0px rgba(255, 77, 0, 0.6);
-  border-color: var(--accent-primary);
+  box-shadow: 4px 4px 0px 0px rgba(255, 107, 53, 0.7),
+              inset -2px -2px 10px rgba(0, 173, 131, 0.05);
+  border-color: var(--accent-secondary);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(255, 107, 53, 0.02) 100%);
 }
 
 .venture-preview {
@@ -1815,24 +2240,80 @@ button:focus {
   color: var(--accent-primary);
   text-decoration: none;
   font-weight: 600;
-  transition: var(--transition-fast);
+  transition: all var(--transition-fast);
   padding: var(--space-xs) var(--space-sm);
-  border: 1px solid transparent;
+  border: 2px solid var(--accent-primary);
   border-radius: 0px;
   font-size: var(--text-sm);
   display: inline-block;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  position: relative;
+  overflow: hidden;
+}
+
+.venture-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-primary);
+  transition: left var(--transition-fast);
+  z-index: -1;
+}
+
+.venture-link:hover::before {
+  left: 0;
 }
 
 .venture-link:hover {
   color: #000000;
-  background-color: var(--accent-primary);
-  border: 1px solid var(--accent-primary);
+  background-color: transparent;
+  border-color: var(--accent-secondary);
+  box-shadow: 2px 2px 0px rgba(255, 107, 53, 0.5);
 }
 
 .venture-card.thought-leadership .venture-role {
   color: rgba(255, 77, 0, 0.7);
+}
+
+/* Color-coded venture cards */
+.venture-card.accent-primary {
+  --card-accent: var(--accent-primary);
+}
+
+.venture-card.accent-secondary {
+  --card-accent: var(--accent-secondary);
+}
+
+.venture-card.accent-tertiary {
+  --card-accent: var(--accent-tertiary);
+}
+
+.venture-card.accent-quaternary {
+  --card-accent: var(--accent-quaternary);
+}
+
+.venture-card.accent-quinary {
+  --card-accent: var(--accent-quinary);
+}
+
+.venture-card.accent-warm {
+  --card-accent: var(--accent-warm);
+}
+
+.venture-card::before {
+  background: linear-gradient(90deg, transparent 0%, var(--card-accent, var(--accent-secondary)) 50%, transparent 100%) !important;
+}
+
+.venture-card:hover::before {
+  background: linear-gradient(90deg, transparent 0%, var(--card-accent, var(--accent-secondary)) 50%, transparent 100%) !important;
+}
+
+.venture-card:hover {
+  border-color: var(--card-accent, var(--accent-secondary)) !important;
 }
 
 /* Enhanced tablet responsiveness */
