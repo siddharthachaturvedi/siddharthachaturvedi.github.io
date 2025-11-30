@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-function VentureCard({ url, role, name, description, link, isFeatured = false, isThoughtLeadership = false, colorAccent = 'primary' }) {
+function VentureCard({ url, role, name, description, link, isFeatured = false, isThoughtLeadership = false }) {
   const imgRef = useRef(null);
   const retryLimit = 2;
   const retryDelay = 2000;
@@ -73,7 +73,7 @@ function VentureCard({ url, role, name, description, link, isFeatured = false, i
     loadScreenshot();
   }, [url, isFeatured]);
 
-  const cardClass = `venture-card ${isFeatured ? 'featured-venture' : ''} ${isThoughtLeadership ? 'thought-leadership' : ''} accent-${colorAccent}`;
+  const cardClass = `venture-card ${isFeatured ? 'featured-venture' : ''} ${isThoughtLeadership ? 'thought-leadership' : ''}`;
   const previewClass = `venture-preview ${!isFeatured ? 'compact' : ''}`;
 
   return (
@@ -101,24 +101,21 @@ export default function Ventures() {
       role: 'Co-Founder',
       name: 'Samvidhaan.AI',
       description: 'Giving solo-practicioners the same AI-powered document intelligence that BigLaw firms use.',
-      link: 'https://samvidhaan.ai',
-      colorAccent: 'secondary'
+      link: 'https://samvidhaan.ai'
     },
     {
       url: 'https://unfreeze.org',
       role: 'Co-Founder',
       name: 'Unfreeze.org',
       description: 'Multi-agentic system of intelligence for people frozen by layoffs.',
-      link: 'https://unfreeze.org',
-      colorAccent: 'quinary'
+      link: 'https://unfreeze.org'
     },
     {
       url: 'https://stratcorp.ai',
       role: 'Founding Partner',
       name: 'Stratified Advisory',
       description: 'Board-as-a-Service practice to elevate and transform your executive boards.',
-      link: 'https://stratcorp.ai',
-      colorAccent: 'quaternary'
+      link: 'https://stratcorp.ai'
     },
     {
       url: 'https://justai.fyi',
@@ -126,8 +123,7 @@ export default function Ventures() {
       name: 'JustAI.FYI',
       description: 'Synthesis of Software 3.0 and post-agentic systems.',
       link: 'https://justai.fyi',
-      isThoughtLeadership: true,
-      colorAccent: 'warm'
+      isThoughtLeadership: true
     }
   ];
 

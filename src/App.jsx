@@ -6,7 +6,6 @@ import Recognition from './components/Recognition';
 import Ventures from './components/Ventures';
 import Current from './components/Current';
 import Connect from './components/Connect';
-import AnimationEffects from './components/AnimationEffects';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import './styles.css';
 
@@ -34,7 +33,6 @@ function App() {
 
   return (
     <>
-      <AnimationEffects />
       <Navigation
         activeSection={activeSection}
         isDarkTheme={isDarkTheme}

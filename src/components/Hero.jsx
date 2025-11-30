@@ -1,23 +1,4 @@
-import { useState, useEffect } from 'react';
-
 export default function Hero() {
-  const taglines = [
-    'Scaling multi-agentic AI to responsible impact.',
-    'Building post-agentic systems for scientific discovery.',
-    'Evidence-grade AI for underserved disease areas.',
-    'Connecting innovation with human-centered outcomes.'
-  ];
-
-  const [currentTagline, setCurrentTagline] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTagline(prev => (prev + 1) % taglines.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="hero" id="hero">
       <div className="container container-content">
@@ -37,16 +18,9 @@ export default function Hero() {
               <img src="https://www.insead.edu/profiles/custom/insead/themes/insead_core/images/logo.png" alt="INSEAD" className="hero-logo" />
             </a>
           </div>
-          <div className="hero-tagline-wrapper">
-            {taglines.map((tagline, index) => (
-              <p
-                key={index}
-                className={`text-body-lg hero-description tagline ${index === currentTagline ? 'active' : ''}`}
-              >
-                {tagline}
-              </p>
-            ))}
-          </div>
+          <p className="text-body-lg hero-description">
+            Scaling multi-agentic AI to responsible impact.
+          </p>
         </div>
       </div>
     </section>
