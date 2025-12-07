@@ -132,17 +132,6 @@ export default function Ventures() {
       <div className="container">
         <h2 className="text-headline section-header">Building the Future</h2>
 
-        <div className="ventures-featured">
-          <VentureCard
-            url="https://veriscience.ai"
-            role="Founder"
-            name="Veriscience.AI"
-            description="Evidence-grade SLM fine tuning for underserved disease areas, starting with Endometriosis."
-            link="https://veriscience.ai"
-            isFeatured={true}
-          />
-        </div>
-
         <div className="ventures-grid">
           {ventures.map((venture, index) => (
             <VentureCard key={index} {...venture} />
