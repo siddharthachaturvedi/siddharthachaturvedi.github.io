@@ -79,83 +79,39 @@ Evidence-grade SLM fine tuning for underserved disease areas, starting with Endo
 ### Connect
 - **LinkedIn** — [/in/siddharth](https://linkedin.com/in/siddharth)
 - **Schedule** — [Meet](https://calendly.com/s-sidc/meet)
-- **Resume** — [Download PDF](./public/resume.pdf)
+<!-- Resume removed from site -->
 
 ### Currently Available For
 - Strategic Advisory
 - Keynote Speaking
 - Board Positions
 
-### Location
-Based between US, UK & Asia — Available for global engagements
-
 ---
 
-## Portfolio Website
+# Siddhartha Chaturvedi — Static Portfolio
 
-This repository hosts a refined, minimal portfolio built with modern web technologies.
+This repository now hosts a static HTML/CSS/JS version of the portfolio. The React/Vite/NPM build artifacts have been removed in favor of a simple, zero-dependency site.
 
-### Features
+Files in this repository:
+- `index.html` — main HTML file
+- `styles.css` — global styling
+- `script.js` — JavaScript for interactions (theme toggle, mobile nav, scroll spy, venture previews)
+- `README.md` — this file
 
-| Feature | Description |
-|---------|-------------|
-| **Responsive Design** | Mobile-first, optimized for all devices |
-| **Accessibility** | WCAG compliant with proper focus states |
-| **Modern CSS** | Custom properties, Grid, Flexbox |
-| **Performance** | Optimized fonts, images, animations |
-| **Scroll Snapping** | Smooth section navigation |
+How to view locally:
+1. Open `index.html` in your browser directly, or
+2. Serve with a simple HTTP server (recommended):
 
-### Tech Stack
+```bash
+# Python 3
+python -m http.server 8000
 
-```
-Framework:  React 19 • Vite 7
-Frontend:   HTML5 • CSS3 • JavaScript
-Styling:    CSS Custom Properties
-Fonts:      Inter • Playfair Display
-Hosting:    GitHub Pages
-Design:     Mobile-first responsive
+# Then open http://localhost:8000 in your browser
 ```
 
-### Design System
+Notes:
+- The site was rebuilt from the original React components and styles into plain HTML/CSS/JS.
+- External resources (logos and screenshots) are fetched over the network; placeholder images or external URLs are used when the original `public/` assets were removed.
+- If you'd like to keep the original profile image and resume in the repo, add them to the root folder and update `index.html` accordingly.
 
-- **Typography**: Inter + Playfair Display pairing
-- **Colors**: Off-white backgrounds with forest green accent (#00AD83)
-- **Layout**: Responsive grid with scroll-snapping
-- **Interactions**: Subtle animations and transitions
-- **Theme**: Light and dark mode support
-
----
-
-## Project Structure
-
-```
-siddhartha-chaturvedi-portfolio/
-├── index.html                 # Main entry point
-├── src/
-│   ├── App.jsx               # Root component
-│   ├── main.jsx              # React entry
-│   ├── styles.css            # Design system & global styles
-│   ├── components/           # Feature components
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Current.jsx
-│   │   ├── Recognition.jsx
-│   │   ├── Ventures.jsx
-│   │   ├── Connect.jsx
-│   │   └── Navigation.jsx
-│   └── hooks/                # Custom React hooks
-│       └── useScrollSpy.js
-├── public/
-│   ├── sidc.jpeg            # Profile image
-│   └── resume.pdf           # Resume
-├── package.json             # Dependencies
-├── vite.config.js          # Vite configuration
-└── README.md               # This file
-```
-
----
-
-<div align="center">
-  <sub>Built with purpose for scientific discovery and innovation</sub><br>
-  <sub>© 2025 Siddhartha Chaturvedi • All rights reserved</sub>
-</div>
+If you want the original React project preserved, it was removed in this cleanup — let me know if you'd like me to restore a separate branch with the React/Vite code before removing it.
