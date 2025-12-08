@@ -48,8 +48,8 @@
 
         <main>
             <section class="hero" id="hero">
-                <div class="container container-content">
-                    <div class="hero-content">
+                <div class="hero-grid">
+                    <div class="hero-left">
                         <div class="hero-photo">
                             <img src="./public/sidc.jpeg" alt="Siddhartha Chaturvedi" class="profile-image">
                         </div>
@@ -59,6 +59,99 @@
                             <a href="https://www.insead.edu/bio/siddhartha-chaturvedi-mba15d" target="_blank" rel="noopener noreferrer"><img src="https://www.insead.edu/profiles/custom/insead/themes/insead_core/images/logo.png" alt="INSEAD" class="hero-logo"></a>
                         </div>
                         <p class="text-body-lg hero-description">Scaling multi-agentic AI to responsible impact.</p>
+
+                        <div class="alignment-legend">
+                            <div class="legend-item" data-node="resonance">
+                                <span class="legend-dot legend-dot-resonance"></span>
+                                <span class="legend-label">Resonance</span>
+                            </div>
+                            <div class="legend-item" data-node="relevance">
+                                <span class="legend-dot legend-dot-relevance"></span>
+                                <span class="legend-label">Relevance</span>
+                            </div>
+                            <div class="legend-item" data-node="response">
+                                <span class="legend-dot legend-dot-response"></span>
+                                <span class="legend-label">Response</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-right">
+                        <div class="alignment-controller">
+                            <div class="alignment-grid"></div>
+                            <svg class="alignment-diagram" viewBox="0 0 400 400" aria-label="AI Alignment Framework">
+                                <defs>
+                                    <filter id="glow-resonance">
+                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <filter id="glow-relevance">
+                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                    <filter id="glow-response">
+                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                        <feMerge>
+                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="SourceGraphic"/>
+                                        </feMerge>
+                                    </filter>
+                                </defs>
+
+                                <path d="M 200,80 L 80,320 L 320,320 Z" fill="none" class="triangle-base" stroke-width="1"/>
+
+                                <line x1="200" y1="80" x2="80" y2="320" class="line-active line-resonance-relevance" stroke-width="2"/>
+                                <line x1="80" y1="320" x2="320" y2="320" class="line-active line-relevance-response" stroke-width="2"/>
+                                <line x1="320" y1="320" x2="200" y2="80" class="line-active line-response-resonance" stroke-width="2"/>
+
+                                <g class="center-connections">
+                                    <line x1="200" y1="80" x2="200" y2="230" stroke-dasharray="4 4"/>
+                                    <line x1="80" y1="320" x2="200" y2="230" stroke-dasharray="4 4"/>
+                                    <line x1="320" y1="320" x2="200" y2="230" stroke-dasharray="4 4"/>
+                                </g>
+
+                                <g class="node node-resonance" data-node="resonance">
+                                    <circle cx="200" cy="80" r="30" class="node-bg"/>
+                                    <circle cx="200" cy="80" r="4" class="node-core"/>
+                                    <text x="200" y="40" text-anchor="middle" class="node-label">RESONANCE</text>
+                                    <text x="200" y="55" text-anchor="middle" class="node-sublabel">Vibe Check</text>
+                                </g>
+
+                                <g class="node node-relevance" data-node="relevance">
+                                    <circle cx="80" cy="320" r="30" class="node-bg"/>
+                                    <circle cx="80" cy="320" r="4" class="node-core"/>
+                                    <text x="80" y="370" text-anchor="middle" class="node-label">RELEVANCE</text>
+                                    <text x="80" y="385" text-anchor="middle" class="node-sublabel">Truth Grounding</text>
+                                </g>
+
+                                <g class="node node-response" data-node="response">
+                                    <circle cx="320" cy="320" r="30" class="node-bg"/>
+                                    <circle cx="320" cy="320" r="4" class="node-core"/>
+                                    <text x="320" y="370" text-anchor="middle" class="node-label">RESPONSE</text>
+                                    <text x="320" y="385" text-anchor="middle" class="node-sublabel">Utility Function</text>
+                                </g>
+
+                                <g class="node node-equilibrium" data-node="equilibrium">
+                                    <circle cx="200" cy="230" r="40" class="equilibrium-bg" stroke-dasharray="4 2"/>
+                                    <circle cx="200" cy="230" r="2" class="equilibrium-core"/>
+                                    <path d="M 200,215 L 200,245 M 185,230 L 215,230" class="equilibrium-cross" stroke-width="1"/>
+                                    <text x="200" y="285" text-anchor="middle" class="equilibrium-label">Equilibrium</text>
+                                </g>
+                            </svg>
+
+                            <div class="alignment-status">
+                                <div class="status-indicator">
+                                    <span class="status-dot"></span>
+                                    <span class="status-text">Alignment Framework</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

@@ -127,7 +127,7 @@
     animateOnScroll(cards, 'scale-in');
 
     // Animate hero elements
-    const heroElements = $$('.hero-photo, .hero-name, .hero-description');
+    const heroElements = $$('.hero-photo, .hero-name, .hero-description, .alignment-controller');
     heroElements.forEach((el, index) => {
       el.style.transitionDelay = `${index * 150}ms`;
     });
@@ -185,6 +185,120 @@
     });
   }
 
+  // Alignment Controller Interactive Visualization
+  function initAlignmentController() {
+    const nodes = $$('.node');
+    const legendItems = $$('.legend-item');
+    const centerConnections = $('.center-connections');
+    const lines = {
+      'resonance': ['.line-resonance-relevance', '.line-response-resonance'],
+      'relevance': ['.line-resonance-relevance', '.line-relevance-response'],
+      'response': ['.line-relevance-response', '.line-response-resonance'],
+      'equilibrium': ['.line-resonance-relevance', '.line-relevance-response', '.line-response-resonance']
+    };
+
+    let activeNode = null;
+
+    const setActive = (nodeName) => {
+      // Clear all active states
+      nodes.forEach(n => n.classList.remove('active'));
+      legendItems.forEach(l => l.classList.remove('active'));
+      $$('.line-active').forEach(l => l.style.opacity = '0');
+
+      if (centerConnections) {
+        centerConnections.classList.remove('active');
+      }
+
+      if (!nodeName) {
+        activeNode = null;
+        return;
+      }
+
+      activeNode = nodeName;
+
+      // Set active node
+      const activeNodeEl = $(`.node-${nodeName}`);
+      if (activeNodeEl) {
+        activeNodeEl.classList.add('active');
+      }
+
+      // Set active legend
+      const activeLegend = $(`.legend-item[data-node="${nodeName}"]`);
+      if (activeLegend) {
+        activeLegend.classList.add('active');
+      }
+
+      // Activate corresponding lines
+      if (lines[nodeName]) {
+        lines[nodeName].forEach(selector => {
+          const line = $(selector);
+          if (line) line.style.opacity = '1';
+        });
+      }
+
+      // Special case for equilibrium
+      if (nodeName === 'equilibrium' && centerConnections) {
+        centerConnections.classList.add('active');
+      }
+    };
+
+    // Node hover handlers
+    nodes.forEach(node => {
+      const nodeName = node.dataset.node;
+
+      node.addEventListener('mouseenter', () => {
+        setActive(nodeName);
+      });
+
+      node.addEventListener('mouseleave', () => {
+        setActive(null);
+      });
+    });
+
+    // Legend item handlers
+    legendItems.forEach(item => {
+      const nodeName = item.dataset.node;
+
+      item.addEventListener('mouseenter', () => {
+        setActive(nodeName);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        setActive(null);
+      });
+
+      item.addEventListener('click', () => {
+        if (activeNode === nodeName) {
+          setActive(null);
+        } else {
+          setActive(nodeName);
+        }
+      });
+    });
+
+    // Mouse parallax effect for grid
+    const alignmentGrid = $('.alignment-grid');
+    if (alignmentGrid) {
+      let mouseX = 0;
+      let mouseY = 0;
+
+      const handleMouseMove = (e) => {
+        const rect = alignmentGrid.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width) * 10 - 5;
+        mouseY = ((e.clientY - rect.top) / rect.height) * 10 - 5;
+        alignmentGrid.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+      };
+
+      const controller = $('.alignment-controller');
+      if (controller) {
+        controller.addEventListener('mousemove', handleMouseMove);
+        controller.addEventListener('mouseleave', () => {
+          alignmentGrid.style.transform = 'translate(0, 0)';
+        });
+      }
+    }
+  }
+
   // Initialize everything
   document.addEventListener('DOMContentLoaded', () => {
     initTheme();
@@ -193,6 +307,7 @@
     initScrollSpy();
     initScrollAnimations();
     initVenturePreviews();
+    initAlignmentController();
 
     // Theme toggle handling
     const themeToggle = document.getElementById('theme-toggle');
