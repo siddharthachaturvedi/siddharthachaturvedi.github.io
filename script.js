@@ -1,39 +1,19 @@
-/* Post-2026 Website - Neo-Futurist Minimalism JavaScript
-   - Enhanced theme toggle with cyberpunk effects
-   - Mobile menu with holographic animations
-   - Advanced scroll spy with intersection observer
-   - Scroll-triggered animations for post-2026 UX
-   - Venture screenshot lazy loading with retry logic
-   - Performance-optimized event handling
-*/
+/*
+ * Siddhartha Chaturvedi • Strategic AI Visionary
+ * Computational Minimalism (John Maeda)
+ */
 
 (function () {
   // Utilities
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
 
-  // Theme handling
-  function initTheme() {
-    const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = saved || (prefersDark ? 'dark' : 'light');
-    document.body.classList.toggle('dark-theme', initial === 'dark');
-    document.body.classList.toggle('light-theme', initial === 'light');
-    const toggle = $('#theme-toggle');
-    if (toggle) toggle.checked = initial === 'dark';
-  }
-
-  function toggleTheme(checked) {
-    document.body.classList.toggle('dark-theme', checked);
-    document.body.classList.toggle('light-theme', !checked);
-    localStorage.setItem('theme', checked ? 'dark' : 'light');
-  }
-
-  // Mobile nav
+  // Mobile Navigation
   function initMobileNav() {
-    const navToggle = document.getElementById('nav-toggle');
-    const overlay = document.getElementById('nav-mobile-overlay');
-    if (!navToggle) return;
+    const navToggle = $('#nav-toggle');
+    const overlay = $('#nav-mobile-overlay');
+
+    if (!navToggle || !overlay) return;
 
     navToggle.addEventListener('click', () => {
       const active = navToggle.classList.toggle('active');
@@ -50,215 +30,129 @@
         document.body.style.overflow = '';
       }
     });
-  }
 
-  // Nav smooth scroll and scroll offset (nav height)
-  function initNavLinks() {
-    const links = $$('.nav-link');
-    const linksMobile = $$('.nav-mobile-link');
-    function scrollToId(e, id) {
-      if (e) e.preventDefault();
-      const el = document.getElementById(id);
-      if (!el) return;
-      const navHeight = 80;
-      const target = Math.max(0, el.offsetTop - navHeight);
-      window.scrollTo({ top: target, behavior: 'smooth' });
-    }
-
-    links.forEach(a => a.addEventListener('click', (e) => scrollToId(e, a.getAttribute('href').substring(1))));
-    linksMobile.forEach(a => a.addEventListener('click', (e) => scrollToId(e, a.getAttribute('href').substring(1))));
-  }
-
-  // Scroll spy - highlight active nav link
-  function initScrollSpy() {
-    const sections = ['hero', 'about', 'current', 'connect'];
-    const linkMap = {};
-    sections.forEach(id => {
-      const link = document.querySelector(`.nav-link[href='#${id}']`);
-      if (link) linkMap[id] = link;
+    // Close on mobile link click
+    $$('.nav-mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
     });
+  }
 
-    const opts = { threshold: [0.25, 0.5, 0.75], rootMargin: '-80px 0px -50% 0px' };
+  // Smooth Scroll with Offset
+  function initSmoothScroll() {
+    $$('.nav-link, .nav-mobile-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const target = $(`#${targetId}`);
 
-    let current = 'hero';
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          current = entry.target.id;
+        if (target) {
+          const navHeight = 80;
+          const targetPosition = target.offsetTop - navHeight;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
       });
-      // Update links
-      Object.keys(linkMap).forEach(id => linkMap[id].classList.toggle('active', id === current));
-    }, opts);
+    });
+  }
+
+  // Scroll Spy
+  function initScrollSpy() {
+    const sections = ['hero', 'about', 'current', 'connect'];
+    const links = {};
 
     sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) obs.observe(el);
+      const link = $(`.nav-link[href='#${id}']`);
+      if (link) links[id] = link;
     });
-  }
 
-  // Scroll-based animations for post-2026 UX
-  function initScrollAnimations() {
-    const animateOnScroll = (elements, animationClass = 'fade-in') => {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add(animationClass);
-            io.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          Object.values(links).forEach(link => link.classList.remove('active'));
+          const activeLink = links[entry.target.id];
+          if (activeLink) activeLink.classList.add('active');
+        }
       });
-
-      elements.forEach(el => io.observe(el));
-    };
-
-    // Animate section headers
-    const sectionHeaders = $$('.section-header');
-    animateOnScroll(sectionHeaders, 'fade-in');
-
-    // Animate focus items
-    const focusItems = $$('.focus-item');
-    focusItems.forEach((item, index) => {
-      item.style.transitionDelay = `${index * 100}ms`;
+    }, {
+      threshold: 0.3,
+      rootMargin: '-80px 0px -50% 0px'
     });
-    animateOnScroll(focusItems, 'fade-in');
 
-    // Animate hero elements
-    const heroElements = $$('.hero-photo, .hero-name, .hero-tagline, .alignment-framework, .hero-cta');
-    heroElements.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 100}ms`;
+    sections.forEach(id => {
+      const section = $(`#${id}`);
+      if (section) observer.observe(section);
     });
-    animateOnScroll(heroElements, 'fade-in-staggered');
   }
 
-  // Alignment Controller Interactive Visualization
-  function initAlignmentController() {
-    const nodes = $$('.node');
-    const legendItems = $$('.legend-item');
-    const centerConnections = $('.center-connections');
-    const lines = {
-      'resonance': ['.line-resonance-relevance', '.line-response-resonance'],
-      'relevance': ['.line-resonance-relevance', '.line-relevance-response'],
-      'response': ['.line-relevance-response', '.line-response-resonance'],
-      'equilibrium': ['.line-resonance-relevance', '.line-relevance-response', '.line-response-resonance']
-    };
-
+  // Triad Node Interactions
+  function initTriadNodes() {
+    const nodes = $$('.triad-node');
     let activeNode = null;
 
-    const setActive = (nodeName) => {
-      // Clear all active states
-      nodes.forEach(n => n.classList.remove('active'));
-      legendItems.forEach(l => l.classList.remove('active'));
-      $$('.line-active').forEach(l => l.style.opacity = '0');
-
-      if (centerConnections) {
-        centerConnections.classList.remove('active');
-      }
-
-      if (!nodeName) {
-        activeNode = null;
-        return;
-      }
-
-      activeNode = nodeName;
-
-      // Set active node
-      const activeNodeEl = $(`.node-${nodeName}`);
-      if (activeNodeEl) {
-        activeNodeEl.classList.add('active');
-      }
-
-      // Set active legend
-      const activeLegend = $(`.legend-item[data-node="${nodeName}"]`);
-      if (activeLegend) {
-        activeLegend.classList.add('active');
-      }
-
-      // Activate corresponding lines
-      if (lines[nodeName]) {
-        lines[nodeName].forEach(selector => {
-          const line = $(selector);
-          if (line) line.style.opacity = '1';
-        });
-      }
-
-      // Special case for equilibrium
-      if (nodeName === 'equilibrium' && centerConnections) {
-        centerConnections.classList.add('active');
-      }
-    };
-
-    // Node hover handlers
     nodes.forEach(node => {
-      const nodeName = node.dataset.node;
-
       node.addEventListener('mouseenter', () => {
-        setActive(nodeName);
+        if (activeNode && activeNode !== node) {
+          activeNode.classList.remove('active');
+        }
+        node.classList.add('active');
+        activeNode = node;
       });
 
       node.addEventListener('mouseleave', () => {
-        setActive(null);
-      });
-    });
-
-    // Legend item handlers
-    legendItems.forEach(item => {
-      const nodeName = item.dataset.node;
-
-      item.addEventListener('mouseenter', () => {
-        setActive(nodeName);
+        node.classList.remove('active');
+        if (activeNode === node) {
+          activeNode = null;
+        }
       });
 
-      item.addEventListener('mouseleave', () => {
-        setActive(null);
-      });
+      node.addEventListener('click', () => {
+        const isActive = node.classList.contains('active');
+        nodes.forEach(n => n.classList.remove('active'));
 
-      item.addEventListener('click', () => {
-        if (activeNode === nodeName) {
-          setActive(null);
+        if (!isActive) {
+          node.classList.add('active');
+          activeNode = node;
         } else {
-          setActive(nodeName);
+          activeNode = null;
         }
       });
     });
-
-    // Mouse parallax effect for grid
-    const alignmentGrid = $('.alignment-grid');
-    if (alignmentGrid) {
-      let mouseX = 0;
-      let mouseY = 0;
-
-      const handleMouseMove = (e) => {
-        const rect = alignmentGrid.getBoundingClientRect();
-        mouseX = ((e.clientX - rect.left) / rect.width) * 10 - 5;
-        mouseY = ((e.clientY - rect.top) / rect.height) * 10 - 5;
-        alignmentGrid.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-      };
-
-      const controller = $('.alignment-controller');
-      if (controller) {
-        controller.addEventListener('mousemove', handleMouseMove);
-        controller.addEventListener('mouseleave', () => {
-          alignmentGrid.style.transform = 'translate(0, 0)';
-        });
-      }
-    }
   }
 
-  // Initialize everything
-  document.addEventListener('DOMContentLoaded', () => {
-    initTheme();
-    initMobileNav();
-    initNavLinks();
-    initScrollSpy();
-    initScrollAnimations();
-    initAlignmentController();
+  // Fade-in Animations on Scroll
+  function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
 
-    // Theme toggle handling
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) themeToggle.addEventListener('change', (e) => toggleTheme(e.target.checked));
+    const animateElements = $$('.hero-identity, .value-function, .hero-cta, .section-header, .focus-item, .triad-node');
+    animateElements.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 100}ms`;
+      observer.observe(el);
+    });
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    initMobileNav();
+    initSmoothScroll();
+    initScrollSpy();
+    initTriadNodes();
+    initScrollAnimations();
   });
 })();

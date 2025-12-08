@@ -1,249 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <meta name="description" content="Siddhartha Chaturvedi • Strategic AI Visionary" />
-        <title>Siddhartha Chaturvedi • Strategic AI Visionary</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;900&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./styles.css">
-    </head>
-    <body>
-        <nav class="nav" role="navigation" aria-label="Main navigation">
-            <div class="nav-content">
-                <div class="nav-links" id="nav-links">
-                    <a href="#hero" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#current" class="nav-link">Current</a>
-                    <a href="#connect" class="nav-link">Connect</a>
-                </div>
-                <div class="nav-actions">
-                    <div class="theme-toggle-wrapper">
-                        <input type="checkbox" id="theme-toggle" class="theme-toggle-checkbox">
-                        <label for="theme-toggle" class="theme-toggle"><span class="toggle-button"></span></label>
-                    </div>
-                    <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                        <span class="nav-toggle-line"></span>
-                        <span class="nav-toggle-line"></span>
-                        <span class="nav-toggle-line"></span>
-                    </button>
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Siddhartha Chaturvedi • Strategic AI Visionary • Scaling multi-agentic AI to responsible impact">
+    <title>Siddhartha Chaturvedi • Strategic AI Visionary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-content">
+            <div class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#current" class="nav-link">Current</a>
+                <a href="#connect" class="nav-link">Connect</a>
             </div>
-
-            <div class="nav-mobile-overlay" id="nav-mobile-overlay" role="dialog" aria-hidden="true">
-                <div class="nav-mobile-links">
-                    <a href="#hero" class="nav-mobile-link">Home</a>
-                    <a href="#about" class="nav-mobile-link">About</a>
-                    <a href="#current" class="nav-mobile-link">Current</a>
-                    <a href="#connect" class="nav-mobile-link">Connect</a>
-                </div>
+            <div class="nav-actions">
+                <button id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                    <span class="nav-toggle-line"></span>
+                </button>
             </div>
-        </nav>
+        </div>
 
-        <main>
-            <section class="hero" id="hero">
-                <div class="hero-container">
-                    <div class="hero-header">
-                        <div class="hero-photo">
-                            <img src="./public/sidc.jpeg" alt="Siddhartha Chaturvedi" class="profile-image">
-                        </div>
-                        <h1 class="hero-name">Siddhartha Chaturvedi</h1>
-                        <p class="hero-tagline">Scaling multi-agentic AI to responsible impact</p>
-                        <div class="hero-credentials">
-                            <span class="credential">Former Microsoft Director</span>
-                            <span class="divider">•</span>
-                            <span class="credential">INSEAD MBA</span>
-                        </div>
-                    </div>
+        <div class="nav-mobile-overlay" id="nav-mobile-overlay" role="dialog" aria-hidden="true">
+            <div class="nav-mobile-links">
+                <a href="#hero" class="nav-mobile-link">Home</a>
+                <a href="#about" class="nav-mobile-link">About</a>
+                <a href="#current" class="nav-mobile-link">Current</a>
+                <a href="#connect" class="nav-mobile-link">Connect</a>
+            </div>
+        </div>
+    </nav>
 
-                    <div class="alignment-framework">
-                        <div class="framework-header">
-                            <h2 class="framework-title">AI Alignment Framework</h2>
-                            <p class="framework-subtitle">Three pillars for responsible post-agentic systems</p>
-                        </div>
-
-                        <div class="alignment-controller">
-                            <div class="alignment-grid"></div>
-                            <svg class="alignment-diagram" viewBox="0 0 400 400" aria-label="AI Alignment Framework">
-                                <defs>
-                                    <filter id="glow-resonance">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
-                                    </filter>
-                                    <filter id="glow-relevance">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
-                                    </filter>
-                                    <filter id="glow-response">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
-                                    </filter>
-                                </defs>
-
-                                <path d="M 200,80 L 80,320 L 320,320 Z" fill="none" class="triangle-base" stroke-width="1"/>
-
-                                <line x1="200" y1="80" x2="80" y2="320" class="line-active line-resonance-relevance" stroke-width="2"/>
-                                <line x1="80" y1="320" x2="320" y2="320" class="line-active line-relevance-response" stroke-width="2"/>
-                                <line x1="320" y1="320" x2="200" y2="80" class="line-active line-response-resonance" stroke-width="2"/>
-
-                                <g class="center-connections">
-                                    <line x1="200" y1="80" x2="200" y2="230" stroke-dasharray="4 4"/>
-                                    <line x1="80" y1="320" x2="200" y2="230" stroke-dasharray="4 4"/>
-                                    <line x1="320" y1="320" x2="200" y2="230" stroke-dasharray="4 4"/>
-                                </g>
-
-                                <g class="node node-resonance" data-node="resonance">
-                                    <circle cx="200" cy="80" r="30" class="node-bg"/>
-                                    <circle cx="200" cy="80" r="4" class="node-core"/>
-                                    <text x="200" y="40" text-anchor="middle" class="node-label">RESONANCE</text>
-                                    <text x="200" y="55" text-anchor="middle" class="node-sublabel">The Vibe</text>
-                                </g>
-
-                                <g class="node node-relevance" data-node="relevance">
-                                    <circle cx="80" cy="320" r="30" class="node-bg"/>
-                                    <circle cx="80" cy="320" r="4" class="node-core"/>
-                                    <text x="80" y="370" text-anchor="middle" class="node-label">RELEVANCE</text>
-                                    <text x="80" y="385" text-anchor="middle" class="node-sublabel">The Truth</text>
-                                </g>
-
-                                <g class="node node-response" data-node="response">
-                                    <circle cx="320" cy="320" r="30" class="node-bg"/>
-                                    <circle cx="320" cy="320" r="4" class="node-core"/>
-                                    <text x="320" y="370" text-anchor="middle" class="node-label">RESPONSE</text>
-                                    <text x="320" y="385" text-anchor="middle" class="node-sublabel">The Action</text>
-                                </g>
-
-                                <g class="node node-equilibrium" data-node="equilibrium">
-                                    <circle cx="200" cy="230" r="40" class="equilibrium-bg" stroke-dasharray="4 2"/>
-                                    <circle cx="200" cy="230" r="2" class="equilibrium-core"/>
-                                    <path d="M 200,215 L 200,245 M 185,230 L 215,230" class="equilibrium-cross" stroke-width="1"/>
-                                    <text x="200" y="285" text-anchor="middle" class="equilibrium-label">Equilibrium</text>
-                                </g>
-                            </svg>
-                        </div>
-
-                        <div class="alignment-legend">
-                            <div class="legend-item" data-node="resonance">
-                                <span class="legend-dot legend-dot-resonance"></span>
-                                <span class="legend-label">Resonance</span>
-                                <span class="legend-desc">Does this sound like us?</span>
-                            </div>
-                            <div class="legend-item" data-node="relevance">
-                                <span class="legend-dot legend-dot-relevance"></span>
-                                <span class="legend-label">Relevance</span>
-                                <span class="legend-desc">Is this true based on our data?</span>
-                            </div>
-                            <div class="legend-item" data-node="response">
-                                <span class="legend-dot legend-dot-response"></span>
-                                <span class="legend-label">Response</span>
-                                <span class="legend-desc">Is this useful to the user?</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-cta">
-                        <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="cta-primary">
-                            Read My Writing
-                            <span class="cta-arrow">→</span>
-                        </a>
-                        <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="cta-secondary">
-                            Connect on LinkedIn
-                        </a>
-                    </div>
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-container">
+                <div class="hero-identity">
+                    <h1 class="hero-name">Siddhartha Chaturvedi</h1>
+                    <p class="hero-tagline">Scaling multi-agentic AI to responsible impact</p>
                 </div>
-            </section>
 
-            <section class="section" id="about">
-                <div class="container">
-                    <div class="about-content">
-                        <h2 class="section-header">Background</h2>
-                        <div class="about-text">
-                            <p class="about-lead">Former Director at Microsoft Strategic Missions & Technologies, leading AI innovation touching millions through federal deployments and healthcare breakthroughs.</p>
-                            <p class="about-description">Recognized by Fast Company as a World Changing Idea for Microsoft Premonition, a biothreat detection platform securing multi-million government contracts. Built advanced biomedical search transforming how scientists discover and connect knowledge.</p>
-                            <blockquote class="philosophy">
-                                <p class="quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
-                                <cite class="quote-source">— Overheard at INSEAD</cite>
-                            </blockquote>
-                        </div>
+                <div class="value-function">
+                    <div class="vf-header">
+                        <h2 class="vf-title">The Value Function</h2>
+                        <p class="vf-subtitle">The Triad of Alignment</p>
                     </div>
-                </div>
-            </section>
 
-            <section class="section section-alt" id="current">
-                <div class="container">
-                    <h2 class="section-header">Current Focus</h2>
-                    <div class="current-content">
-                        <div class="focus-main">
-                            <div class="focus-item">
-                                <h3 class="focus-title">Post-Agentic AI Systems</h3>
-                                <p class="focus-description">Building next-generation scientific computing platforms for under-represented diseases that transcend current agent limitations.</p>
-                            </div>
-                            <div class="focus-item">
-                                <h3 class="focus-title">Scientific Knowledge Graphs</h3>
-                                <p class="focus-description">Reimagining how research connections are discovered and accelerated through responsible AI systems.</p>
-                            </div>
-                            <div class="focus-item">
-                                <h3 class="focus-title">Public-Private Innovation</h3>
-                                <p class="focus-description">Healthcare and government partnerships through responsible AI governance and strategic advisory.</p>
-                            </div>
-                        </div>
-                        <div class="focus-sidebar">
-                            <div class="advisory-box">
-                                <h3 class="advisory-title">Advisory & Investment</h3>
-                                <div class="advisory-list">
-                                    <div class="advisory-item">
-                                        <span class="advisory-role">Limited Partner</span>
-                                        <span class="advisory-org">rpv (DeepTech VC)</span>
-                                    </div>
-                                    <div class="advisory-item">
-                                        <span class="advisory-role">Advisor</span>
-                                        <span class="advisory-org">Loyal VC</span>
-                                    </div>
+                    <div class="triad-container">
+                        <div class="triad-grid">
+                            <div class="triad-node" data-node="resonance">
+                                <div class="triad-label">Resonance</div>
+                                <div class="triad-sublabel">The Vibe</div>
+                                <div class="triad-question">Does this sound like us?</div>
+                                <div class="triad-anchor">Anchors the model in your organizational aesthetics and brand voice. Prevents 'Grey Goo'.</div>
+                                <div class="triad-shift">
+                                    <span class="shift-from">Generic 'Helpful Assistant'</span>
+                                    <span class="shift-to">→ Specific Brand Persona</span>
                                 </div>
                             </div>
-                            <p class="availability-note">Available for strategic advisory, keynote speaking, and board positions.</p>
+
+                            <div class="triad-node" data-node="relevance">
+                                <div class="triad-label">Relevance</div>
+                                <div class="triad-sublabel">The Truth</div>
+                                <div class="triad-question">Is this true based on our data?</div>
+                                <div class="triad-anchor">Anchors the model in your proprietary knowledge base (RAG). Prevents hallucination.</div>
+                                <div class="triad-shift">
+                                    <span class="shift-from">Training Data (Public)</span>
+                                    <span class="shift-to">→ RAG Context (Private)</span>
+                                </div>
+                            </div>
+
+                            <div class="triad-node" data-node="response">
+                                <div class="triad-label">Response</div>
+                                <div class="triad-sublabel">The Action</div>
+                                <div class="triad-question">Is this useful to the user?</div>
+                                <div class="triad-anchor">Anchors the model in capability. Ensures the model triggers correct tools and produces the right format.</div>
+                                <div class="triad-shift">
+                                    <span class="shift-from">Open-Ended Chat</span>
+                                    <span class="shift-to">→ Deterministic Artifacts</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="executive-directive">
+                            <div class="directive-label">Executive Directive</div>
+                            <p class="directive-text">A common failure mode is investing 90% of the budget in 'Relevance' (RAG) and 0% in 'Resonance'. The result is a bot that is technically accurate but so robotic that users reject it.</p>
+                        </div>
+
+                        <div class="key-insights">
+                            <div class="insights-label">[ Key Insights ]</div>
+                            <div class="insights-grid">
+                                <div class="insight-item">
+                                    <div class="insight-number">01</div>
+                                    <p class="insight-text">Alignment is a three-body problem: Truth (Relevance), Vibe (Resonance), and Utility (Response).</p>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-number">02</div>
+                                    <p class="insight-text">Relevance without Resonance feels robotic; Resonance without Relevance leads to hallucination.</p>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-number">03</div>
+                                    <p class="insight-text">Response (Tools) is what turns a 'Chatbot' into a 'Workbot'.</p>
+                                </div>
+                                <div class="insight-item">
+                                    <div class="insight-number">04</div>
+                                    <p class="insight-text">Avoid 'Grey Goo': Don't optimize safety so much that you lose the brand persona.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <section class="section connect-section" id="connect">
-                <div class="container">
-                    <div class="connect-content">
-                        <h2 class="section-header centered">Connect</h2>
-                        <div class="connect-links">
-                            <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="connect-link">
-                                <span class="connect-label">LinkedIn</span>
-                                <span class="connect-handle">/in/siddharth</span>
-                            </a>
-                            <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="connect-link">
-                                <span class="connect-label">Writing</span>
-                                <span class="connect-handle">JustAI.FYI</span>
-                            </a>
-                        </div>
-                        <p class="connect-location">Based between US, UK & Asia</p>
-                    </div>
+                <div class="hero-cta">
+                    <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="cta-primary">Read My Writing</a>
+                    <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="cta-secondary">Connect on LinkedIn</a>
                 </div>
-            </section>
-        </main>
-
-        <footer>
-            <div class="container">
-                <p>© 2025 Siddhartha Chaturvedi • All rights reserved</p>
             </div>
-        </footer>
+        </section>
 
-        <script src="./script.js" defer></script>
-    </body>
-    </html>
+        <section class="section" id="about">
+            <div class="about-content">
+                <h2 class="section-header">Background</h2>
+                <p class="about-lead">Former Director at Microsoft Strategic Missions & Technologies, leading AI innovation touching millions through federal deployments and healthcare breakthroughs.</p>
+                <p class="about-description">Recognized by Fast Company as a World Changing Idea for Microsoft Premonition, a biothreat detection platform securing multi-million government contracts. Built advanced biomedical search transforming how scientists discover and connect knowledge.</p>
+                <blockquote class="philosophy">
+                    <p class="quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
+                    <cite class="quote-source">— Overheard at INSEAD</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="section" id="current">
+            <h2 class="section-header">Current Focus</h2>
+            <div class="current-content">
+                <div class="focus-main">
+                    <div class="focus-item">
+                        <h3 class="focus-title">Post-Agentic AI Systems</h3>
+                        <p class="focus-description">Building next-generation scientific computing platforms for under-represented diseases that transcend current agent limitations.</p>
+                    </div>
+                    <div class="focus-item">
+                        <h3 class="focus-title">Scientific Knowledge Graphs</h3>
+                        <p class="focus-description">Reimagining how research connections are discovered and accelerated through responsible AI systems.</p>
+                    </div>
+                    <div class="focus-item">
+                        <h3 class="focus-title">Public-Private Innovation</h3>
+                        <p class="focus-description">Healthcare and government partnerships through responsible AI governance and strategic advisory.</p>
+                    </div>
+                </div>
+                <div class="focus-sidebar">
+                    <div class="advisory-box">
+                        <h3 class="advisory-title">Advisory & Investment</h3>
+                        <div class="advisory-list">
+                            <div class="advisory-item">
+                                <div class="advisory-role">Limited Partner</div>
+                                <div class="advisory-org">rpv (DeepTech VC)</div>
+                            </div>
+                            <div class="advisory-item">
+                                <div class="advisory-role">Advisor</div>
+                                <div class="advisory-org">Loyal VC</div>
+                            </div>
+                        </div>
+                        <p class="availability-note">Available for strategic advisory, keynote speaking, and board positions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="connect">
+            <div class="connect-content">
+                <h2 class="section-header">Connect</h2>
+                <div class="connect-links">
+                    <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="connect-link">
+                        <span class="connect-label">LinkedIn</span>
+                        <span class="connect-handle">/in/siddharth</span>
+                    </a>
+                    <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="connect-link">
+                        <span class="connect-label">Writing</span>
+                        <span class="connect-handle">JustAI.FYI</span>
+                    </a>
+                </div>
+                <p class="connect-location">Based between US, UK & Asia</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Siddhartha Chaturvedi</p>
+    </footer>
+
+    <script src="./script.js" defer></script>
+</body>
+</html>
