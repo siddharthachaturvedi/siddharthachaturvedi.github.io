@@ -1,9 +1,10 @@
-/* Main JS for static site
-   - Theme toggle + persistence
-   - Mobile menu toggle
-   - Scroll spy to mark active nav link
-   - Smooth scroll handling
-   - Venture screenshot lazy loading via IntersectionObserver
+/* Post-2026 Website - Neo-Futurist Minimalism JavaScript
+   - Enhanced theme toggle with cyberpunk effects
+   - Mobile menu with holographic animations
+   - Advanced scroll spy with intersection observer
+   - Scroll-triggered animations for post-2026 UX
+   - Venture screenshot lazy loading with retry logic
+   - Performance-optimized event handling
 */
 
 (function () {
@@ -96,6 +97,43 @@
     });
   }
 
+  // Scroll-based animations for post-2026 UX
+  function initScrollAnimations() {
+    const animateOnScroll = (elements, animationClass = 'fade-in') => {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(animationClass);
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      elements.forEach(el => io.observe(el));
+    };
+
+    // Animate section headers
+    const sectionHeaders = $$('.section-header');
+    animateOnScroll(sectionHeaders, 'fade-in');
+
+    // Animate cards with staggered effect
+    const cards = $$('.venture-card, .recognition-item');
+    cards.forEach((card, index) => {
+      card.style.transitionDelay = `${index * 100}ms`;
+    });
+    animateOnScroll(cards, 'scale-in');
+
+    // Animate hero elements
+    const heroElements = $$('.hero-photo, .hero-name, .hero-description');
+    heroElements.forEach((el, index) => {
+      el.style.transitionDelay = `${index * 150}ms`;
+    });
+    animateOnScroll(heroElements, 'fade-in-staggered');
+  }
+
   // Venture screenshot lazy loading
   function initVenturePreviews() {
     const imgs = $$('.venture-screenshot');
@@ -153,6 +191,7 @@
     initMobileNav();
     initNavLinks();
     initScrollSpy();
+    initScrollAnimations();
     initVenturePreviews();
 
     // Theme toggle handling
