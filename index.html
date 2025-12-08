@@ -16,8 +16,6 @@
                 <div class="nav-links" id="nav-links">
                     <a href="#hero" class="nav-link">Home</a>
                     <a href="#about" class="nav-link">About</a>
-                    <a href="#recognition" class="nav-link">Recognition</a>
-                    <a href="#ventures" class="nav-link">Ventures</a>
                     <a href="#current" class="nav-link">Current</a>
                     <a href="#connect" class="nav-link">Connect</a>
                 </div>
@@ -38,8 +36,6 @@
                 <div class="nav-mobile-links">
                     <a href="#hero" class="nav-mobile-link">Home</a>
                     <a href="#about" class="nav-mobile-link">About</a>
-                    <a href="#recognition" class="nav-mobile-link">Recognition</a>
-                    <a href="#ventures" class="nav-mobile-link">Ventures</a>
                     <a href="#current" class="nav-mobile-link">Current</a>
                     <a href="#connect" class="nav-mobile-link">Connect</a>
                 </div>
@@ -48,35 +44,26 @@
 
         <main>
             <section class="hero" id="hero">
-                <div class="hero-grid">
-                    <div class="hero-left">
+                <div class="hero-container">
+                    <div class="hero-header">
                         <div class="hero-photo">
                             <img src="./public/sidc.jpeg" alt="Siddhartha Chaturvedi" class="profile-image">
                         </div>
-                        <h1 class="text-display hero-name"><span class="name-first">Siddhartha</span> <span class="name-last">Chaturvedi</span></h1>
-                        <div class="hero-logos">
-                            <a href="https://devblogs.microsoft.com/azuregov/author/sidc/" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="hero-logo"></a>
-                            <a href="https://www.insead.edu/bio/siddhartha-chaturvedi-mba15d" target="_blank" rel="noopener noreferrer"><img src="https://www.insead.edu/profiles/custom/insead/themes/insead_core/images/logo.png" alt="INSEAD" class="hero-logo"></a>
-                        </div>
-                        <p class="text-body-lg hero-description">Scaling multi-agentic AI to responsible impact.</p>
-
-                        <div class="alignment-legend">
-                            <div class="legend-item" data-node="resonance">
-                                <span class="legend-dot legend-dot-resonance"></span>
-                                <span class="legend-label">Resonance</span>
-                            </div>
-                            <div class="legend-item" data-node="relevance">
-                                <span class="legend-dot legend-dot-relevance"></span>
-                                <span class="legend-label">Relevance</span>
-                            </div>
-                            <div class="legend-item" data-node="response">
-                                <span class="legend-dot legend-dot-response"></span>
-                                <span class="legend-label">Response</span>
-                            </div>
+                        <h1 class="hero-name">Siddhartha Chaturvedi</h1>
+                        <p class="hero-tagline">Scaling multi-agentic AI to responsible impact</p>
+                        <div class="hero-credentials">
+                            <span class="credential">Former Microsoft Director</span>
+                            <span class="divider">•</span>
+                            <span class="credential">INSEAD MBA</span>
                         </div>
                     </div>
 
-                    <div class="hero-right">
+                    <div class="alignment-framework">
+                        <div class="framework-header">
+                            <h2 class="framework-title">AI Alignment Framework</h2>
+                            <p class="framework-subtitle">Three pillars for responsible post-agentic systems</p>
+                        </div>
+
                         <div class="alignment-controller">
                             <div class="alignment-grid"></div>
                             <svg class="alignment-diagram" viewBox="0 0 400 400" aria-label="AI Alignment Framework">
@@ -120,21 +107,21 @@
                                     <circle cx="200" cy="80" r="30" class="node-bg"/>
                                     <circle cx="200" cy="80" r="4" class="node-core"/>
                                     <text x="200" y="40" text-anchor="middle" class="node-label">RESONANCE</text>
-                                    <text x="200" y="55" text-anchor="middle" class="node-sublabel">Vibe Check</text>
+                                    <text x="200" y="55" text-anchor="middle" class="node-sublabel">The Vibe</text>
                                 </g>
 
                                 <g class="node node-relevance" data-node="relevance">
                                     <circle cx="80" cy="320" r="30" class="node-bg"/>
                                     <circle cx="80" cy="320" r="4" class="node-core"/>
                                     <text x="80" y="370" text-anchor="middle" class="node-label">RELEVANCE</text>
-                                    <text x="80" y="385" text-anchor="middle" class="node-sublabel">Truth Grounding</text>
+                                    <text x="80" y="385" text-anchor="middle" class="node-sublabel">The Truth</text>
                                 </g>
 
                                 <g class="node node-response" data-node="response">
                                     <circle cx="320" cy="320" r="30" class="node-bg"/>
                                     <circle cx="320" cy="320" r="4" class="node-core"/>
                                     <text x="320" y="370" text-anchor="middle" class="node-label">RESPONSE</text>
-                                    <text x="320" y="385" text-anchor="middle" class="node-sublabel">Utility Function</text>
+                                    <text x="320" y="385" text-anchor="middle" class="node-sublabel">The Action</text>
                                 </g>
 
                                 <g class="node node-equilibrium" data-node="equilibrium">
@@ -144,145 +131,88 @@
                                     <text x="200" y="285" text-anchor="middle" class="equilibrium-label">Equilibrium</text>
                                 </g>
                             </svg>
+                        </div>
 
-                            <div class="alignment-status">
-                                <div class="status-indicator">
-                                    <span class="status-dot"></span>
-                                    <span class="status-text">Alignment Framework</span>
-                                </div>
+                        <div class="alignment-legend">
+                            <div class="legend-item" data-node="resonance">
+                                <span class="legend-dot legend-dot-resonance"></span>
+                                <span class="legend-label">Resonance</span>
+                                <span class="legend-desc">Does this sound like us?</span>
+                            </div>
+                            <div class="legend-item" data-node="relevance">
+                                <span class="legend-dot legend-dot-relevance"></span>
+                                <span class="legend-label">Relevance</span>
+                                <span class="legend-desc">Is this true based on our data?</span>
+                            </div>
+                            <div class="legend-item" data-node="response">
+                                <span class="legend-dot legend-dot-response"></span>
+                                <span class="legend-label">Response</span>
+                                <span class="legend-desc">Is this useful to the user?</span>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="cta-primary">
+                            Read My Writing
+                            <span class="cta-arrow">→</span>
+                        </a>
+                        <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="cta-secondary">
+                            Connect on LinkedIn
+                        </a>
                     </div>
                 </div>
             </section>
 
             <section class="section" id="about">
                 <div class="container">
-                    <div class="grid grid-asymmetric about-grid">
-                        <div class="about-left">
-                            <h2 class="text-headline section-header">Previous Chapter</h2>
-                            <p class="text-body-lg chapter-org">Microsoft Strategic Missions & Technologies</p>
-                            <p class="text-body chapter-role">Director of Product Management</p>
-                        </div>
-                        <div class="about-right">
-                            <p class="text-body-lg about-description">Led AI innovation touching millions through federal deployments and healthcare breakthroughs.</p>
-                            <div class="current-focus">
-                                <h3 class="text-title focus-header">Current Focus</h3>
-                                <p class="text-body focus-text">Post-agentic systems for under-represented diseases. Building beyond today's Human-AI augmentation toward tomorrow's research acceleration.</p>
-                            </div>
-                            <blockquote class="philosophy"><p class="text-title quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
-                            <cite class="text-caption quote-source">— Overheard at INSEAD</cite></blockquote>
+                    <div class="about-content">
+                        <h2 class="section-header">Background</h2>
+                        <div class="about-text">
+                            <p class="about-lead">Former Director at Microsoft Strategic Missions & Technologies, leading AI innovation touching millions through federal deployments and healthcare breakthroughs.</p>
+                            <p class="about-description">Recognized by Fast Company as a World Changing Idea for Microsoft Premonition, a biothreat detection platform securing multi-million government contracts. Built advanced biomedical search transforming how scientists discover and connect knowledge.</p>
+                            <blockquote class="philosophy">
+                                <p class="quote-text">"Strategy without execution is hallucination. Execution without strategy is chaos."</p>
+                                <cite class="quote-source">— Overheard at INSEAD</cite>
+                            </blockquote>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section class="section section-alt" id="recognition">
+            <section class="section section-alt" id="current">
                 <div class="container">
-                    <div class="grid recognition-grid">
-                        <div class="recognition-item featured">
-                            <div class="text-overline recognition-badge">Recognition</div>
-                            <h3 class="text-title recognition-title">Fast Company's World Changing Idea 2021</h3>
-                            <p class="text-body recognition-subtitle">Microsoft Premonition</p>
-                            <p class="text-body recognition-description">Biothreat detection platform securing multi-million government contracts.</p>
-                        </div>
-                        <div class="recognition-item">
-                            <div class="text-overline recognition-badge">Research Innovation</div>
-                            <h3 class="text-title recognition-title">Biomedical Search Platform</h3>
-                            <p class="text-body recognition-description">Advanced search transforming how scientists discover and connect knowledge.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section ventures-section" id="ventures">
-                <div class="container">
-                    <h2 class="text-headline section-header">Building the Future</h2>
-                    <div class="ventures-grid">
-                        <div class="venture-card" data-url="https://samvidhaan.ai">
-                            <div class="venture-preview">
-                                <div class="venture-preview-loading"><div class="loading-skeleton"></div></div>
-                                <img class="venture-screenshot" alt="Samvidhaan preview" loading="lazy">
+                    <h2 class="section-header">Current Focus</h2>
+                    <div class="current-content">
+                        <div class="focus-main">
+                            <div class="focus-item">
+                                <h3 class="focus-title">Post-Agentic AI Systems</h3>
+                                <p class="focus-description">Building next-generation scientific computing platforms for under-represented diseases that transcend current agent limitations.</p>
                             </div>
-                            <div class="venture-content">
-                                <div class="text-overline venture-role">Co-Founder</div>
-                                <h3 class="text-title venture-name">Samvidhaan.ai</h3>
-                                <p class="text-body venture-description">Giving solo-practicioners the same AI-powered document intelligence that BigLaw firms use.</p>
-                                <a href="https://samvidhaan.ai" target="_blank" rel="noopener noreferrer" class="venture-link">Visit →</a>
+                            <div class="focus-item">
+                                <h3 class="focus-title">Scientific Knowledge Graphs</h3>
+                                <p class="focus-description">Reimagining how research connections are discovered and accelerated through responsible AI systems.</p>
+                            </div>
+                            <div class="focus-item">
+                                <h3 class="focus-title">Public-Private Innovation</h3>
+                                <p class="focus-description">Healthcare and government partnerships through responsible AI governance and strategic advisory.</p>
                             </div>
                         </div>
-
-                        <div class="venture-card" data-url="https://unfreeze.org">
-                            <div class="venture-preview">
-                                <div class="venture-preview-loading"><div class="loading-skeleton"></div></div>
-                                <img class="venture-screenshot" alt="Unfreeze.org preview" loading="lazy">
-                            </div>
-                            <div class="venture-content">
-                                <div class="text-overline venture-role">Co-Founder</div>
-                                <h3 class="text-title venture-name">Unfreeze.org</h3>
-                                <p class="text-body venture-description">Multi-agentic system of intelligence for people frozen by layoffs.</p>
-                                <a href="https://unfreeze.org" target="_blank" rel="noopener noreferrer" class="venture-link">Visit →</a>
-                            </div>
-                        </div>
-
-                        <div class="venture-card" data-url="https://stratcorp.ai">
-                            <div class="venture-preview">
-                                <div class="venture-preview-loading"><div class="loading-skeleton"></div></div>
-                                <img class="venture-screenshot" alt="Stratified Advisory preview" loading="lazy">
-                            </div>
-                            <div class="venture-content">
-                                <div class="text-overline venture-role">Founding Partner</div>
-                                <h3 class="text-title venture-name">Stratified Advisory</h3>
-                                <p class="text-body venture-description">Board-as-a-Service practice to elevate and transform your executive boards.</p>
-                                <a href="https://stratcorp.ai" target="_blank" rel="noopener noreferrer" class="venture-link">Visit →</a>
-                            </div>
-                        </div>
-
-                        <div class="venture-card" data-url="https://justai.fyi">
-                            <div class="venture-preview">
-                                <div class="venture-preview-loading"><div class="loading-skeleton"></div></div>
-                                <img class="venture-screenshot" alt="JustAI.FYI preview" loading="lazy">
-                            </div>
-                            <div class="venture-content">
-                                <div class="text-overline venture-role">Author</div>
-                                <h3 class="text-title venture-name">JustAI.FYI</h3>
-                                <p class="text-body venture-description">Synthesis of Software 3.0 and post-agentic systems.</p>
-                                <a href="https://justai.fyi" target="_blank" rel="noopener noreferrer" class="venture-link">Visit →</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section current-section" id="current">
-                <div class="container">
-                    <div class="grid grid-asymmetric current-grid">
-                        <div class="current-main">
-                            <h2 class="text-headline section-header">Current Investigations</h2>
-                            <div class="investigations-list">
-                                <div class="investigation-item">
-                                    <h3 class="text-title investigation-title">Post-Agentic AI Systems</h3>
-                                    <p class="text-body investigation-description">Next-generation scientific computing platforms that transcend current agent limitations.</p>
-                                </div>
-                                <div class="investigation-item">
-                                    <h3 class="text-title investigation-title">Scientific Knowledge Graphs</h3>
-                                    <p class="text-body investigation-description">Reimagining how research connections are discovered and accelerated.</p>
-                                </div>
-                                <div class="investigation-item">
-                                    <h3 class="text-title investigation-title">Public-Private Innovation</h3>
-                                    <p class="text-body investigation-description">Healthcare and government partnerships through responsible AI governance.</p>
+                        <div class="focus-sidebar">
+                            <div class="advisory-box">
+                                <h3 class="advisory-title">Advisory & Investment</h3>
+                                <div class="advisory-list">
+                                    <div class="advisory-item">
+                                        <span class="advisory-role">Limited Partner</span>
+                                        <span class="advisory-org">rpv (DeepTech VC)</span>
+                                    </div>
+                                    <div class="advisory-item">
+                                        <span class="advisory-role">Advisor</span>
+                                        <span class="advisory-org">Loyal VC</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="current-side">
-                            <div class="advisory-section">
-                                <h3 class="text-title advisory-header">Advisory & Investment</h3>
-                                <div class="advisory-items">
-                                    <div class="advisory-item"><span class="text-overline advisory-role">Limited Partner</span> <span class="text-body advisory-org">rpv (DeepTech VC)</span></div>
-                                    <div class="advisory-item"><span class="text-overline advisory-role">Advisor</span> <span class="text-body advisory-org">Loyal VC</span></div>
-                                </div>
-                                <p class="text-caption availability">Available for strategic engagements.</p>
-                            </div>
+                            <p class="availability-note">Available for strategic advisory, keynote speaking, and board positions.</p>
                         </div>
                     </div>
                 </div>
@@ -291,21 +221,18 @@
             <section class="section connect-section" id="connect">
                 <div class="container">
                     <div class="connect-content">
-                        <h2 class="text-headline section-header centered">Let's Talk</h2>
-                        <div class="networks">
-                            <div class="network-item"><span class="text-overline network-label">LinkedIn</span>
-                                <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="text-body-lg network-link">/in/siddharth</a>
-                            </div>
-                            <div class="network-item"><span class="text-overline network-label">Schedule</span>
-                                <a href="https://calendly.com/s-sidc/meet" target="_blank" rel="noopener noreferrer" class="text-body-lg network-link network-button">Meet</a>
-                            </div>
-                            <!-- Resume link removed per request -->
+                        <h2 class="section-header centered">Connect</h2>
+                        <div class="connect-links">
+                            <a href="https://linkedin.com/in/siddharth" target="_blank" rel="noopener noreferrer" class="connect-link">
+                                <span class="connect-label">LinkedIn</span>
+                                <span class="connect-handle">/in/siddharth</span>
+                            </a>
+                            <a href="https://justAI.FYI" target="_blank" rel="noopener noreferrer" class="connect-link">
+                                <span class="connect-label">Writing</span>
+                                <span class="connect-handle">JustAI.FYI</span>
+                            </a>
                         </div>
-                        <div class="availability-section">
-                            <h3 class="text-title availability-header">Currently Available</h3>
-                            <div class="text-body-lg availability-items">Strategic Advisory • Keynote Speaking • Board Positions</div>
-                        </div>
-                        <div class="location"><p class="text-body location-text">Based between US, UK & Asia — Available for global engagements</p></div>
+                        <p class="connect-location">Based between US, UK & Asia</p>
                     </div>
                 </div>
             </section>

@@ -71,7 +71,7 @@
 
   // Scroll spy - highlight active nav link
   function initScrollSpy() {
-    const sections = ['hero', 'about', 'recognition', 'ventures', 'current', 'connect'];
+    const sections = ['hero', 'about', 'current', 'connect'];
     const linkMap = {};
     sections.forEach(id => {
       const link = document.querySelector(`.nav-link[href='#${id}']`);
@@ -119,70 +119,19 @@
     const sectionHeaders = $$('.section-header');
     animateOnScroll(sectionHeaders, 'fade-in');
 
-    // Animate cards with staggered effect
-    const cards = $$('.venture-card, .recognition-item');
-    cards.forEach((card, index) => {
-      card.style.transitionDelay = `${index * 100}ms`;
+    // Animate focus items
+    const focusItems = $$('.focus-item');
+    focusItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 100}ms`;
     });
-    animateOnScroll(cards, 'scale-in');
+    animateOnScroll(focusItems, 'fade-in');
 
     // Animate hero elements
-    const heroElements = $$('.hero-photo, .hero-name, .hero-description, .alignment-controller');
+    const heroElements = $$('.hero-photo, .hero-name, .hero-tagline, .alignment-framework, .hero-cta');
     heroElements.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 150}ms`;
+      el.style.transitionDelay = `${index * 100}ms`;
     });
     animateOnScroll(heroElements, 'fade-in-staggered');
-  }
-
-  // Venture screenshot lazy loading
-  function initVenturePreviews() {
-    const imgs = $$('.venture-screenshot');
-    if (!imgs.length) return;
-
-    const retryLimit = 2;
-    const retryDelay = 2000;
-
-    imgs.forEach(img => {
-      const url = img.closest('.venture-card')?.dataset?.url;
-      const isFeatured = img.closest('.featured-venture');
-      const width = isFeatured ? 1440 : 1200;
-      const height = isFeatured ? 960 : 800;
-      const mshots = `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${width}&h=${height}`;
-      const proxy = `https://corsproxy.io/?${encodeURIComponent(mshots)}`;
-
-      let retryCount = 0;
-
-      const attemptLoad = () => {
-        img.onload = () => {
-          setTimeout(() => img.classList.add('loaded'), 150);
-        };
-        img.onerror = () => {
-          if (retryCount < retryLimit) {
-            retryCount++;
-            setTimeout(attemptLoad, retryDelay);
-          } else {
-            const loadingContainer = img.parentElement.querySelector('.venture-preview-loading');
-            if (loadingContainer) {
-              loadingContainer.innerHTML = '<div style="color: var(--text-secondary); font-size: var(--text-sm); text-align: center; padding: var(--space-md); width: 100%;">Preview unavailable</div>';
-            }
-          }
-        };
-        img.crossOrigin = 'anonymous';
-        img.src = proxy;
-      };
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !img.src) {
-            attemptLoad();
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.05, rootMargin: '150px' });
-
-      const card = img.closest('.venture-card');
-      if (card) io.observe(card);
-    });
   }
 
   // Alignment Controller Interactive Visualization
@@ -306,7 +255,6 @@
     initNavLinks();
     initScrollSpy();
     initScrollAnimations();
-    initVenturePreviews();
     initAlignmentController();
 
     // Theme toggle handling
