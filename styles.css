@@ -257,6 +257,47 @@ nav {
   padding: 2rem;
 }
 
+.triad-svg-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  min-height: 500px;
+}
+
+.triad-svg-wrapper svg {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  filter: drop-shadow(0 20px 40px var(--accent-primary-dim));
+}
+
+.triad-line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.triad-node-circle {
+  transition: stroke-width 400ms ease, opacity 400ms ease;
+}
+
+.triad-center-circle {
+  animation: pulse-center 3s ease-in-out infinite;
+}
+
+.triad-center-dot {
+  animation: pulse-center-dot 3s ease-in-out infinite;
+}
+
+@keyframes pulse-center {
+  0%, 100% { r: 32; opacity: 0.6; }
+  50% { r: 36; opacity: 0.8; }
+}
+
+@keyframes pulse-center-dot {
+  0%, 100% { r: 20; opacity: 0.85; }
+  50% { r: 22; opacity: 1; }
+}
+
 .triad-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -266,12 +307,13 @@ nav {
 
 .triad-node {
   text-align: center;
-  padding: 2rem;
-  border: 1px solid var(--gray-2);
-  background: var(--gray-1);
+  padding: 2.5rem 2rem;
+  border: 1px solid var(--gray-3);
+  background: var(--gray-2);
   cursor: pointer;
   transition: all var(--transition);
   position: relative;
+  border-radius: 8px;
 }
 
 .triad-node::before {
@@ -281,57 +323,74 @@ nav {
   border: 1px solid transparent;
   transition: border-color var(--transition);
   pointer-events: none;
+  border-radius: 8px;
 }
 
-.triad-node:hover,
-.triad-node.active {
-  border-color: var(--accent);
-  background: rgba(0, 255, 148, 0.03);
+.triad-node:nth-child(1):hover,
+.triad-node:nth-child(1).active {
+  border-color: var(--accent-secondary);
+  background: var(--accent-secondary-dim);
+}
+
+.triad-node:nth-child(2):hover,
+.triad-node:nth-child(2).active,
+.triad-node:nth-child(3):hover,
+.triad-node:nth-child(3).active {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary-dim);
 }
 
 .triad-node:hover::before,
 .triad-node.active::before {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px var(--accent-glow);
+  box-shadow: 0 0 24px var(--accent-primary-glow);
 }
 
 .triad-label {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
   color: var(--white);
+  letter-spacing: -0.01em;
 }
 
 .triad-sublabel {
-  font-size: 0.875rem;
-  color: var(--gray-4);
+  font-size: 0.8125rem;
+  color: var(--accent-primary);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.triad-node:nth-child(1) .triad-sublabel {
+  color: var(--accent-secondary);
 }
 
 .triad-question {
   font-size: 0.9375rem;
-  color: var(--gray-3);
+  color: var(--gray-6);
   font-style: italic;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .triad-anchor {
   font-size: 0.875rem;
-  color: var(--gray-4);
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  color: var(--gray-7);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
 }
 
 .triad-shift {
   font-size: 0.8125rem;
-  color: var(--gray-4);
+  color: var(--gray-7);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
 }
 
 .triad-shift span {
@@ -340,11 +399,17 @@ nav {
 
 .shift-from {
   text-decoration: line-through;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .shift-to {
-  color: var(--accent);
+  color: var(--accent-primary);
+  font-weight: 600;
+  opacity: 1;
+}
+
+.triad-node:nth-child(1) .shift-to {
+  color: var(--accent-secondary);
 }
 
 .executive-directive {
@@ -649,9 +714,27 @@ footer {
     padding: 6rem 1rem 3rem;
   }
 
+  .hero-profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 9vw, 4rem);
+  }
+
+  .triad-svg-wrapper {
+    min-height: 400px;
+    margin-bottom: 3rem;
+  }
+
   .triad-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+  }
+
+  .triad-node {
+    padding: 2rem 1.5rem;
   }
 
   .insights-grid {
