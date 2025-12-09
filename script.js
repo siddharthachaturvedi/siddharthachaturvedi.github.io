@@ -1,6 +1,6 @@
 /*
  * Siddhartha Chaturvedi • Strategic AI Visionary
- * Computational Minimalism (John Maeda)
+ * Bauhaus x Japanese Minimalism
  */
 
 (function () {
@@ -141,8 +141,7 @@
     });
 
     const animateElements = $$('.hero-identity, .value-function, .hero-cta, .section-header, .focus-item, .triad-node');
-    animateElements.forEach((el, index) => {
-      el.style.transitionDelay = `${index * 100}ms`;
+    animateElements.forEach((el) => {
       observer.observe(el);
     });
   }

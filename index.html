@@ -58,46 +58,36 @@
                     <div class="triad-container">
                         <div class="triad-svg-wrapper">
                             <svg viewBox="0 0 500 560" xmlns="http://www.w3.org/2000/svg">
-                                <defs>
-                                    <filter id="glow-primary">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                        <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
-                                            <feMergeNode in="SourceGraphic"/>
-                                        </feMerge>
-                                    </filter>
-                                </defs>
+                                <line x1="250" y1="80" x2="120" y2="450" stroke="#1A1A1A" stroke-width="3" class="triad-line"/>
+                                <line x1="250" y1="80" x2="380" y2="450" stroke="#1A1A1A" stroke-width="3" class="triad-line"/>
+                                <line x1="120" y1="450" x2="380" y2="450" stroke="#1A1A1A" stroke-width="3" class="triad-line"/>
 
-                                <line x1="250" y1="80" x2="120" y2="450" stroke="#4A9B8F" stroke-width="2.5" opacity="0.8" class="triad-line"/>
-                                <line x1="250" y1="80" x2="380" y2="450" stroke="#D9B970" stroke-width="2.5" opacity="0.8" class="triad-line"/>
-                                <line x1="120" y1="450" x2="380" y2="450" stroke="#2A8B7E" stroke-width="2.5" opacity="0.8" class="triad-line"/>
+                                <line x1="250" y1="80" x2="250" y2="270" stroke="#C73E1D" stroke-width="2" stroke-dasharray="8,8" class="triad-line"/>
+                                <line x1="120" y1="450" x2="250" y2="270" stroke="#C73E1D" stroke-width="2" stroke-dasharray="8,8" class="triad-line"/>
+                                <line x1="380" y1="450" x2="250" y2="270" stroke="#C73E1D" stroke-width="2" stroke-dasharray="8,8" class="triad-line"/>
 
-                                <line x1="250" y1="80" x2="250" y2="270" stroke="#E8A8B8" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" class="triad-line"/>
-                                <line x1="120" y1="450" x2="250" y2="270" stroke="#E8A8B8" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" class="triad-line"/>
-                                <line x1="380" y1="450" x2="250" y2="270" stroke="#E8A8B8" stroke-width="2" stroke-dasharray="5,5" opacity="0.6" class="triad-line"/>
+                                <circle cx="250" cy="80" r="28" fill="none" stroke="#1A1A1A" stroke-width="3" class="triad-node-circle resonance-node"/>
+                                <circle cx="250" cy="80" r="18" fill="#1A1A1A" class="triad-node-dot"/>
 
-                                <circle cx="250" cy="80" r="28" fill="none" stroke="#D9B970" stroke-width="2.5" filter="url(#glow-primary)" class="triad-node-circle resonance-node"/>
-                                <circle cx="250" cy="80" r="18" fill="#D9B970" opacity="0.9" class="triad-node-dot"/>
+                                <circle cx="120" cy="450" r="28" fill="none" stroke="#1A1A1A" stroke-width="3" class="triad-node-circle relevance-node"/>
+                                <circle cx="120" cy="450" r="18" fill="#1A1A1A" class="triad-node-dot"/>
 
-                                <circle cx="120" cy="450" r="28" fill="none" stroke="#2A8B7E" stroke-width="2.5" filter="url(#glow-primary)" class="triad-node-circle relevance-node"/>
-                                <circle cx="120" cy="450" r="18" fill="#2A8B7E" opacity="0.9" class="triad-node-dot"/>
+                                <circle cx="380" cy="450" r="28" fill="none" stroke="#1A1A1A" stroke-width="3" class="triad-node-circle response-node"/>
+                                <circle cx="380" cy="450" r="18" fill="#1A1A1A" class="triad-node-dot"/>
 
-                                <circle cx="380" cy="450" r="28" fill="none" stroke="#2A8B7E" stroke-width="2.5" filter="url(#glow-primary)" class="triad-node-circle response-node"/>
-                                <circle cx="380" cy="450" r="18" fill="#2A8B7E" opacity="0.9" class="triad-node-dot"/>
+                                <circle cx="250" cy="270" r="32" fill="none" stroke="#C73E1D" stroke-width="3" class="triad-center-circle"/>
+                                <circle cx="250" cy="270" r="20" fill="#C73E1D" class="triad-center-dot"/>
 
-                                <circle cx="250" cy="270" r="32" fill="none" stroke="#E8A8B8" stroke-width="3" filter="url(#glow-primary)" class="triad-center-circle"/>
-                                <circle cx="250" cy="270" r="20" fill="#E8A8B8" opacity="0.85" class="triad-center-dot"/>
+                                <text x="250" y="40" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="700" fill="#1A1A1A" letter-spacing="1">RESONANCE</text>
+                                <text x="250" y="26" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#8C8A82" letter-spacing="0.5">THE VIBE</text>
 
-                                <text x="250" y="40" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="600" fill="#D9B970" letter-spacing="1">RESONANCE</text>
-                                <text x="250" y="26" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#999999" letter-spacing="0.5">THE VIBE</text>
+                                <text x="80" y="480" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="700" fill="#1A1A1A" letter-spacing="1">RELEVANCE</text>
+                                <text x="80" y="466" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#8C8A82" letter-spacing="0.5">THE TRUTH</text>
 
-                                <text x="80" y="480" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="600" fill="#2A8B7E" letter-spacing="1">RELEVANCE</text>
-                                <text x="80" y="466" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#999999" letter-spacing="0.5">THE TRUTH</text>
+                                <text x="420" y="480" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="700" fill="#1A1A1A" letter-spacing="1">RESPONSE</text>
+                                <text x="420" y="466" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#8C8A82" letter-spacing="0.5">THE ACTION</text>
 
-                                <text x="420" y="480" text-anchor="middle" font-family="'Space Grotesk', system-ui" font-size="12" font-weight="600" fill="#2A8B7E" letter-spacing="1">RESPONSE</text>
-                                <text x="420" y="466" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#999999" letter-spacing="0.5">THE ACTION</text>
-
-                                <text x="250" y="275" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#FFFFFF" font-weight="600" letter-spacing="1">EQUILIBRIUM</text>
+                                <text x="250" y="275" text-anchor="middle" font-family="'JetBrains Mono'" font-size="10" fill="#C73E1D" font-weight="700" letter-spacing="1">EQUILIBRIUM</text>
                             </svg>
                         </div>
                         <div class="triad-grid">
